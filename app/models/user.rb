@@ -5,9 +5,10 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable
   has_many :matches
   has_many :received_matches, class_name: 'Match', foreign_key: 'matched_user_id'
+  # hasy_many :asked_matches, class_name: 'Match', foreign_key: 'user_id'
 
-  #sent by user
-  has_many :sent_requests, class_name: "Request", foreign_key: 'sender_id'
-  #sent from user
-  has_many :received_requests, class_name: "Request", foreign_key: 'receiver_id'
+  # #sent by user
+  # has_many :sent_requests, class_name: "Request", foreign_key: 'sender_id'
+  # #sent from user
+  # has_many :received_requests, class_name: "Request", foreign_key: 'receiver_id'
 end
