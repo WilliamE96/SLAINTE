@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @posts = Post.all
@@ -12,6 +11,9 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def new
   end
 
   private
