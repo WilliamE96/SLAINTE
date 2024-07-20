@@ -1,1 +1,8 @@
 <h1>Create a Post</h1>
+
+<%= simple_form_for(@post) do |f| %>
+  <%= f.input :content, label: 'Post Content' %>
+  <%= f.input :image_url, label: 'Image URL' %>
+  <%= f.submit 'Delete Post', class: 'btn btn-danger', data: { confirm: 'Delete Post?' } %>
+  <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+<% end %>

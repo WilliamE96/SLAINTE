@@ -14,6 +14,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
