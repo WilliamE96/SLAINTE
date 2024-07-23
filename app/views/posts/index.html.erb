@@ -1,1 +1,16 @@
 <h1>All Posts</h1>
+
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <strong><%= post.title %></strong> - <%= post.content %>
+      <% if post.image_url.present? %>
+        <%= image_tag post.image_url, alt: 'Post Image', class: 'post-image' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render 'shared/footer' %>
