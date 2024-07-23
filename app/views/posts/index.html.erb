@@ -5,7 +5,7 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <strong><%= post.title %></strong> - <%= post.content %>
+      <strong><%= post.content %>
       <% if post.image_url.present? %>
         <%= image_tag post.image_url, alt: 'Post Image', class: 'post-image' %>
       <% end %>

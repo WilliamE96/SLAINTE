@@ -1,7 +1,6 @@
 <h1>Create a Post</h1>
 
 <%= simple_form_for(@post) do |f| %>
-  <%= f.input :content, label: 'Title' %>
   <%= f.input :content, label: 'Content' %>
   <%= f.input :image_url, as: :file %>
   <%= link_to 'Back', :back, class: 'btn btn-secondary' %>
