@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
+
   def show
-    @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:username, :password, :email, :password_confirmation, :profile_picture)
