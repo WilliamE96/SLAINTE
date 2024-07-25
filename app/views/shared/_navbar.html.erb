@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex justify-content-between">
   <% if user_signed_in? %>
     <%= link_to "#" do %>
-      <% if current_user.profile_picture.attached? %>
-        <%= cl_image_tag current_user.profile_picture.key, class: "avatar ms-2", alt: "dropdown menu" %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
       <% else %>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar ms-2", alt: "dropdown menu" %>
-        <%= debug current_user.profile_picture %>
+        <%= debug current_user.photo %>
       <% end %>
     <% end %>
   <% end %>
@@ -38,4 +38,4 @@
 </nav>
 
 <!-- Add the test Cloudinary image here -->
-<%= cl_image_tag "sample", width: 300, height: 300, crop: :fill %>
+<%# <%= cl_image_tag "sample", width: 300, height: 300, crop: :fill %> 
