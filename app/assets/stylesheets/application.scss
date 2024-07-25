@@ -11,3 +11,138 @@
 @import "components/index";
 @import "pages/index";
 
+// this is the scss for the profile page show,
+// can i keep them here or i have to make a new file,
+// i made already a file called _profile.scss so i can link the scss. From here
+// .profile-picture {
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
+// .profile-img {
+//   border-radius: 50%;
+//   width: 150px;
+//   height: 150px;
+// }
+// .text-center {
+//   text-align: center;
+// }
+// .posts {
+//   margin-top: 20px;
+// }
+// .post {
+//   border-bottom: 1px solid #ccc;
+//   padding-bottom: 10px;
+//   margin-bottom: 10px;
+// }
+// .post-img {
+//   max-width: 100%;
+//   height: auto;
+//   display: block;
+//   margin-top: 10px;
+// }
+// until here
+
+
+
+// Variables for colors
+// this is some extra design for the profile-page-show.
+// the code starts from here until.
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f4f4f4;
+$post-border-color: #ddd;
+$post-background-color: #fff;
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 3px solid $primary-color;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.posts {
+  margin-top: 20px;
+}
+
+.post {
+  background-color: $post-background-color;
+  border: 1px solid $post-border-color;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  small {
+    color: #888;
+  }
+
+  .post-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid $secondary-color;
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .post-username {
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .post-time {
+      font-size: 0.9em;
+      color: #888;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+.text-primary {
+  text-align: center;
+}
+// until here. Ask a TA about it

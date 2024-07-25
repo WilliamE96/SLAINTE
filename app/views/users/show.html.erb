@@ -1,5 +1,27 @@
 <div class="container">
-    <h1 class="text-primary">Profile</h1>
-    <p><%= current_user.username %></p>
-    <p><%= current_user.email %></p>
+  <h1 class="text-primary">Profile name</h1>
+  <div class="profile-picture text-center">
+    <% if @user.profile_picture.attached? %>
+      <%= image_tag @user.profile_picture, alt: @user.username, class: 'profile-img' %>
+    <% else %>
+      <%= image_tag 'default_profile.png', alt: @user.username, class: 'profile-img' %>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <h2><%= @user.username %></h2>
+    <p><%= @user.email %></p>
+  </div>
+
+  <h2>Posts</h2>
+  <div class="posts">
+    <% @user.posts.order(created_at: :desc).each do |post| %>
+      <div class="post">
+        <p><%= post.content %></p>
+        <% if post.image_url.attached? %>
+          <%= image_tag post.image_url, class: 'post-img' %>
+        <% end %>
+        <p><small><%= time_ago_in_words(post.created_at) %> ago</small></p>
+      </div>
+    <% end %>
+  </div>
 </div>
