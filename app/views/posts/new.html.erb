@@ -1,11 +1,10 @@
 <h1>Create a Post</h1>
 
-<%= simple_form_for(@post) do |f| %>
+<%= simple_form_for @post, url: posts_path, html: { multipart: true } do |f| %>
   <%= f.input :content, label: 'Content' %>
-  <%= f.input :image_url, as: :file %>
-  <%= link_to 'Back', :back, class: 'btn btn-secondary' %>
+  <%= f.input :image, as: :file %>
+
+  <%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>
   <%= f.submit 'Create Post', class: 'btn btn-primary' %>
 <% end %>
-
-
 
