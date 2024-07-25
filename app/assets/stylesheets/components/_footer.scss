@@ -1,38 +1,57 @@
 .footer {
-  background: #333;  // Darker background color
-  color: #FFF;  // White text color for contrast
+  background: #d2b34c;
+  color: #000000;
   display: flex;
   align-items: center;
-  justify-content: space-around;  // Ensure space around items for better alignment
-  height: 60px;  // Adjust height to fit mobile screens better
+  justify-content: space-around;
+  height: 60px;
   width: 100%;
-  padding: 0 20px;  // Adjust padding for mobile screens
-  position: fixed;  // Fix the footer to the bottom
-  bottom: 0;  // Position at the bottom
-  left: 0;
-  right: 0;
+  padding: 0 20px;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer-links {
   display: flex;
-  justify-content: space-around;  // Ensure even spacing between links
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
+  position: relative;
 }
 
 .footer-links a {
-  color: #FFBE0B;  // Maintain the yellow color for icons
-  opacity: 0.8;  // Increase opacity for better visibility
+  color: #000000;
+  opacity: 0.8;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 28px;
   padding: 0 10px;
-  transition: opacity 0.3s;  // Smooth transition for hover effect
+  transition: opacity 0.3s;
 }
 
 .footer-links a:hover {
   opacity: 1;
 }
 
-.footer .fa-heart {
-  color: #000000;
+.highlight-icon {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 70px;
+  color: #4a2c2a;
+  background: #fff;
+  border-radius: 50%;
+  padding: 24px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, opacity 0.3s;
 }
 
+.highlight-icon:hover {
+  transform: translateX(-50%) scale(1.1);
+  opacity: 1;
+}
+
+.footer-links a:nth-child(2),
+.footer-links a:nth-child(4) {
+  margin: 0 20px;
+}
