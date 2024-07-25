@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex justify-content-between">
   <% if user_signed_in? %>
-    <%= link_to "#" do %>
+    <%= link_to user_path(current_user) do %>
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
       <% else %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar ms-2", alt: "dropdown menu" %>
-        <%= debug current_user.photo %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
+        <%# <%= debug current_user.photo %>
       <% end %>
     <% end %>
   <% end %>
@@ -36,6 +36,3 @@
     </ul>
   </div>
 </nav>
-
-<!-- Add the test Cloudinary image here -->
-<%# <%= cl_image_tag "sample", width: 300, height: 300, crop: :fill %> 
