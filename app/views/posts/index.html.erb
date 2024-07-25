@@ -1,10 +1,8 @@
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <strong><%= post.content %>
-      <% if post.image_url.present? %>
-        <%= image_tag post.image_url, alt: 'Post Image', class: 'post-image' %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<% @posts.each do |post| %>
+  <div class="post">
+    <p><%= post.content %></p>
+    <% if post.image_url.present? %>
+      <%= image_tag post.image_url, alt: 'Post image', class: 'post-image' %>
+    <% end %>
+  </div>
+<% end %>

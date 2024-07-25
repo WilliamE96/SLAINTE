@@ -1,9 +1,14 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fa-solid fa-house"></i></a>
+    <%= link_to posts_path do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
     <a href="#"><i class="fa-solid fa-comment-dots"></i></a>
-    <%= link_to new_post_path, class: 'highlight-icon' do %><i class="fa-solid fa-circle-plus"></i><% end %>
+    <%= link_to new_post_path, class: 'highlight-icon' do %>
+      <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
     <a href="#"><i class="fa-solid fa-location-dot"></i></a>
     <a href="#"><i class="fa-solid fa-user"></i></a>
   </div>
 </div>
+
