@@ -7,4 +7,6 @@ User.destroy_all
     password: 'password',
     username: "user#{i}"
   )
+
+  
 end
