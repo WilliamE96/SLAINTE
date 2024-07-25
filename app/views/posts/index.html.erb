@@ -1,8 +1,8 @@
 <% @posts.each do |post| %>
   <div class="post">
     <p><%= post.content %></p>
-    <% if post.image_url.present? %>
-      <%= image_tag post.image_url, alt: 'Post image', class: 'post-image' %>
+    <% if post.photo.attached? %>
+      <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
     <% end %>
   </div>
 <% end %>
