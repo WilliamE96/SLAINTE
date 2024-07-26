@@ -36,12 +36,12 @@ photo_filenames = [
   'night6.jpg'
 ]
 
-user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[0]) }
-user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[1]) }
-user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[2]) }
-user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[3]) }
-user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[4]) }
-user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[5]) }
+user1.posts.create!(content: 'Out at Cirque Le Soir, Join!').tap { |post| attach_photo(post, photo_filenames[0]) }
+user2.posts.create!(content: 'on a crawl around shoreditch').tap { |post| attach_photo(post, photo_filenames[1]) }
+user3.posts.create!(content: 'Lets drink').tap { |post| attach_photo(post, photo_filenames[2]) }
+user4.posts.create!(content: 'At the Sugar Cane!').tap { |post| attach_photo(post, photo_filenames[3]) }
+user5.posts.create!(content: 'Buy us some beers!').tap { |post| attach_photo(post, photo_filenames[4]) }
+user6.posts.create!(content: 'Come out with us!!').tap { |post| attach_photo(post, photo_filenames[5]) }
 
 #Uncomment when continuing with cloudinary
 # photo_ids = [

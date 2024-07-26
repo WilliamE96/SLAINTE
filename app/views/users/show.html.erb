@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-primary">Profile name</h1>
+  <h1 class="text-primary"><%= current_user.username %></h1>
   <div class="profile-picture text-center">
     <% if @user.photo.attached? %>
       <%= image_tag @user.photo, alt: @user.username, class: 'profile-img' %>
@@ -8,8 +8,9 @@
     <% end %>
   </div>
   <div class="text-center">
-    <h2><%= @user.username %></h2>
-    <p><%= @user.email %></p>
+    
+    <p class="mb-1"><%= @user.email %></p>
+    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item mb-3 text-warning" %>
   </div>
 
   <h2>Posts</h2>
