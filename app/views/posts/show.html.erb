@@ -1,12 +1,11 @@
 <h1>Post Show Page</h1>
 
-<p><%= @post.content %></p>
-
-<% if @post.image.attached? %>
-  <%= image_tag(cloudinary_url(@post.image.key)), alt: 'Post image', class: 'post-image' %>
-<% end %>
-
-<%= link_to 'Add Comment', new_post_comment_path(@post), class: 'comment-button' %>
-
-<p><%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %> | <%= link_to 'Back', posts_path, class: 'btn btn-secondary' %></p>
-
+<div class="container">
+  <div class="post">
+    <p id="post-title"><%= @post.content %></p>
+      <% if @post.photo.attached? %>
+        <%= cl_image_tag @post.photo.key, alt: 'Post image', class: 'post-image' %>
+      <% end %>
+      <%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div>
+</div>
