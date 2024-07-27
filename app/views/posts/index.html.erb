@@ -9,9 +9,12 @@
           <%= image_tag post.photo, alt: 'Post image', class: 'post-image' %>
         <% end %>
       <% end %>
-      <%= link_to new_post_comment_path(post), class: 'comment-button' do %>
-        <i class="fa-solid fa-comment-dots fa-2x" style="margin-left: 250px;"></i>
-      <% end %>
+      <div class="d-flex align-items-center w-100 justify-content-between">
+        <%= link_to 'Join', '#', class: 'join-button' %>
+        <%= link_to new_post_comment_path(post), class: 'comment-button' do %>
+          <i class="fa-solid fa-comment-dots"></i>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
