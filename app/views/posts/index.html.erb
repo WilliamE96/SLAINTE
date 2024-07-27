@@ -3,7 +3,14 @@
     <div class="post">
       <p id="post-title"><%= post.content %></p>
       <% if post.photo.attached? %>
-        <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+        <% if post.photo.key %>
+          <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+        <% else %>
+          <%= image_tag post.photo, alt: 'Post image', class: 'post-image' %>
+        <% end %>
+      <% end %>
+      <%= link_to new_post_comment_path(post), class: 'comment-button' do %>
+        <i class="fa-solid fa-comment-dots fa-2x" style="margin-left: 250px;"></i>
       <% end %>
     </div>
   <% end %>

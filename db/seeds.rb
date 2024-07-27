@@ -1,4 +1,3 @@
-
 Post.destroy_all
 User.destroy_all
 
@@ -27,48 +26,18 @@ def attach_photo(post, filename)
   post.photo.attach(io: File.open(photo_path), filename: filename)
 end
 
-photo_filenames = [
-  'night1.jpg',
-  'night2.jpg',
-  'night3.jpg',
-  'night4.jpg',
-  'night5.jpg',
-  'night6.jpg'
+photo_urls = [
+  'https://asset.cloudinary.com/dah2rdyj2/28aea771965e6c7e5d5b11cd0051c0f5',
+  'https://asset.cloudinary.com/dah2rdyj2/71cc56ae9cde27518ba51cbcec117285',
+  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night3.jpg',
+  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night4.jpg',
+  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night5.jpg',
+  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night6.jpg'
 ]
 
-user1.posts.create!(content: 'Out at Cirque Le Soir, Join!').tap { |post| attach_photo(post, photo_filenames[0]) }
-user2.posts.create!(content: 'on a crawl around shoreditch').tap { |post| attach_photo(post, photo_filenames[1]) }
-user3.posts.create!(content: 'Lets drink').tap { |post| attach_photo(post, photo_filenames[2]) }
-user4.posts.create!(content: 'At the Sugar Cane!').tap { |post| attach_photo(post, photo_filenames[3]) }
-user5.posts.create!(content: 'Buy us some beers!').tap { |post| attach_photo(post, photo_filenames[4]) }
-user6.posts.create!(content: 'Come out with us!!').tap { |post| attach_photo(post, photo_filenames[5]) }
-
-#Uncomment when continuing with cloudinary
-# photo_ids = [
-#   'pexels-cottonbro-4781422_xrfwon',
-#   'pexels-shkrabaanthony-4612246_ytbxrc',
-#   'pexels-ron-lach-8922193_tnvov0',
-#   'pexels-cottonbro-6530950_udruta',
-#   'pexels-cottonbro-6530941_njnqhc',
-#   'pexels-cottonbro-6530928_dxgs9h',
-#   'pexels-cottonbro-5530167_nv3rg6',
-#   'pexels-cottonbro-5530172_tzvinm',
-#   'pexels-cottonbro-5097359_rlll7t',
-#   'pexels-cottonbro-4781456_gdvxrc'
-# ]
-
-#Uncomment when continuing with cloudinary
-# def attach_photo(post, photo_id)
-#   photo_url = "https://www.pexels.com/photo/#{photo_id}"
-#   photo_file = URI.open(photo_url)
-#   post.photo.attach(io: photo_file, filename: "#{photo_id}.jpg")
-# end
-
-
-#Uncomment when continuing with cloudinary
-# user1.posts.create!(content: 'First post!', photo: )
-# user2.posts.create!(content: 'First post!', photo: )
-# user3.posts.create!(content: 'First post!', photo: )
-# user4.posts.create!(content: 'First post!', photo: )
-# user5.posts.create!(content: 'First post!', photo: )
-# user6.posts.create!(content: 'First post!', photo: )
+user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[0]) }
+user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[1]) }
+user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[2]) }
+user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[3]) }
+user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[4]) }
+user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[5]) }
