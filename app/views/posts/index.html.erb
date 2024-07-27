@@ -2,9 +2,11 @@
   <% @posts.each do |post| %>
     <div class="post">
       <p id="post-title"><%= post.content %></p>
-      <% if post.photo.attached? %>
-        <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
-      <% end %>
+        <%= link_to post do %>
+          <% if post.photo.attached? %>
+            <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+          <% end %>
+        <% end %>
     </div>
   <% end %>
 </div>
