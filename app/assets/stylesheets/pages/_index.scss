@@ -1,12 +1,5 @@
 // Import page-specific CSS files here.
 @import "home";
-// .post {
-//   // display: flex;
-//   // flex-wrap: wrap;
-//   // gap: 20px;
-//   // justify-content: space-between;
-//   // display: block
-// }
 
 .post-image {
   max-width: 300px;
@@ -20,3 +13,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+#post-title {
+  text-align: center;
+}
+

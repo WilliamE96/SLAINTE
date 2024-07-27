@@ -1,7 +1,7 @@
 <div class="container">
   <% @posts.each do |post| %>
     <div class="post">
-      <p><%= post.content %></p>
+      <p id="post-title"><%= post.content %></p>
       <% if post.photo.attached? %>
         <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
       <% end %>
