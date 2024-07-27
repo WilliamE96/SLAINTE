@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+before_action :set_post, only: [:show, :destroy]
 
   before_action :find_post, only: [:show, :destroy]
   def index
@@ -6,7 +7,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @post = current_user.posts.build(post_params)
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   private
@@ -35,5 +36,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :photo)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

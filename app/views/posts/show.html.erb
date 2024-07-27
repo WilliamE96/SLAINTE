@@ -1,6 +1,5 @@
 <div class="container">
   <p id="post-title"><%= @post.content %></p>
-
   <% if @post.photo.attached? %>
     <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
   <% end %>
@@ -18,3 +17,4 @@
     <% end %>
   <% end %>
 </div>
+
