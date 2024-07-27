@@ -1,11 +1,20 @@
-<h1>Post Show Page</h1>
-
 <div class="container">
-  <div class="post">
-    <p id="post-title"><%= @post.content %></p>
-      <% if @post.photo.attached? %>
-        <%= cl_image_tag @post.photo.key, alt: 'Post image', class: 'post-image' %>
-      <% end %>
-      <%= link_to 'Delete', post_path(@post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  </div>
+  <p id="post-title"><%= @post.content %></p>
+  <% if @post.photo.attached? %>
+    <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
+  <% end %>
+  <%= link_to "Delete", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, calss: "btn btn-danger" %>
+  <p><%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %></p>
+  <p><%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %></p>
+  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
+  <% if pre_like %>
+    <%= button_to post_like_path(@post, pre_like), method: :delete do %>
+      <i class="fa-solid fa-heart like-btn"></i>
+    <% end %>
+  <% else %>
+    <%= button_to post_likes_path(@post), method: :post do %>
+      <i class="fa-regular fa-heart like-btn"></i>
+    <% end %>
+  <% end %>
 </div>
+

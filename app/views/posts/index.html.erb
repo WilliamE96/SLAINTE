@@ -2,19 +2,22 @@
   <% @posts.each do |post| %>
     <div class="post">
       <p id="post-title"><%= post.content %></p>
-      <% if post.photo.attached? %>
-        <% if post.photo.key %>
-          <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
-        <% else %>
-          <%= image_tag post.photo, alt: 'Post image', class: 'post-image' %>
+        <% if post.photo.attached? %>
+          <%= link_to post, class: "w-100" do %>
+            <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+          <% end %>
+          <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+            <%= button_to post_like_path(post, pre_like), method: :delete do %>
+              <i class="fa-solid fa-heart like-btn"></i>
+            <% end %>
+          <% else %>
+            <%= button_to post_likes_path(post), method: :post do %>
+              <i class="fa-regular fa-heart like-btn"></i>
+            <% end %>
+          <% end %>
+          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         <% end %>
-      <% end %>
-      <div class="d-flex align-items-center w-100 justify-content-between">
-        <%= link_to 'Join', '#', class: 'join-button' %>
-        <%= link_to new_post_comment_path(post), class: 'comment-button' do %>
-          <i class="fa-solid fa-comment-dots"></i>
-        <% end %>
-      </div>
     </div>
   <% end %>
 </div>
