@@ -10,29 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/profile";
+@import "components/comment";
 @import "pages/show";
 
 
 // this is some extra design for the profile-page-show.
 // the code starts from here until.
-$primary-color: #3498db;
+$primary-color: #cbced1;
 $secondary-color: #2ecc71;
 $background-color: #f4f4f4;
 $post-border-color: #ddd;
 $post-background-color: #fff;
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: $background-color;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 .profile-picture {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .profile-img {
@@ -109,7 +102,26 @@ $post-background-color: #fff;
     height: 100px;
   }
 }
+.button {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  background-color: $primary-color;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 15%);
+  }
+}
 .text-primary {
   text-align: center;
 }
-// until here. Ask a TA about it
+// until here .....
