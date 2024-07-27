@@ -11,40 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
-// this is the scss for the profile page show,
-// can i keep them here or i have to make a new file,
-// i made already a file called _profile.scss so i can link the scss. From here
-// .profile-picture {
-//   text-align: center;
-//   margin-bottom: 20px;
-// }
-// .profile-img {
-//   border-radius: 50%;
-//   width: 150px;
-//   height: 150px;
-// }
-// .text-center {
-//   text-align: center;
-// }
-// .posts {
-//   margin-top: 20px;
-// }
-// .post {
-//   border-bottom: 1px solid #ccc;
-//   padding-bottom: 10px;
-//   margin-bottom: 10px;
-// }
-// .post-img {
-//   max-width: 100%;
-//   height: auto;
-//   display: block;
-//   margin-top: 10px;
-// }
-// until here
 
-
-
-// Variables for colors
 // this is some extra design for the profile-page-show.
 // the code starts from here until.
 $primary-color: #3498db;
@@ -131,7 +98,6 @@ $post-background-color: #fff;
   }
 }
 
-// Responsive design
 @media (max-width: 768px) {
   .container {
     padding: 10px;
