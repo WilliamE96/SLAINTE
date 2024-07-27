@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show]
+  before_action :find_post, only: [:show, :destroy]
   def index
     @posts = Post.all
   end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   private
   def find_post
-    @post = Post.find(post_params[:post_id])
+    @post = Post.find(params[:id])
   end
 
   def post_params

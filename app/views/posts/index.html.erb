@@ -2,21 +2,22 @@
   <% @posts.each do |post| %>
     <div class="post">
       <p id="post-title"><%= post.content %></p>
-      <% if post.photo.attached? %>
-        <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
-        <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
-        <% if pre_like %>
-          <%= button_to post_like_path(post, pre_like), method: :delete do %>
-            <i class="fa-solid fa-heart"></i>
+        <% if post.photo.attached? %>
+          <%= link_to post, class: "w-100" do %>
+            <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
           <% end %>
-        <% else %>
-          <%= button_to post_likes_path(post), method: :post do %>
-            <i class="fa-regular fa-heart"></i>
+          <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+            <%= button_to post_like_path(post, pre_like), method: :delete do %>
+              <i class="fa-solid fa-heart like-btn"></i>
+            <% end %>
+          <% else %>
+            <%= button_to post_likes_path(post), method: :post do %>
+              <i class="fa-regular fa-heart like-btn"></i>
+            <% end %>
           <% end %>
+          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
         <% end %>
-        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-      <% end %>
     </div>
   <% end %>
 </div>
-``
