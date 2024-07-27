@@ -3,7 +3,9 @@
 <p><%= @post.content %></p>
 
 <% if @post.image.attached? %>
-  <%= image_tag(cloudinary_url(@post.image.key)) %>
+  <%= image_tag(cloudinary_url(@post.image.key)), alt: 'Post image', class: 'post-image' %>
 <% end %>
 
-<p><%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %></p>
+<%= link_to 'Add Comment', new_post_comment_path(@post), class: 'comment-button' %>
+
+<p><%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-secondary' %> | <%= link_to 'Back', posts_path, class: 'btn btn-secondary' %></p>
