@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   has_many :posts
+  has_many :likes
   has_many :matches, class_name: 'Match', foreign_key: 'matched_user_id'
   has_many :received_matches, class_name: 'Match', foreign_key: 'user_id'
   # has_one_attached :profile_picture
