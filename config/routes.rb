@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update]
 
   # Post routes
-  resources :posts, only: [:index, :create, :new, :destroy, :show]
+  resources :posts, only: [:index, :create, :new, :destroy]
+  resources :posts do
+    resources :likes, only: [:create, :new, :destroy]
+  end
 
   # Match routes
   resources :matches, only: [:index, :create, :update, :destroy]
-
-  #Like routes
-  resources :likes, only: [:create, :destroy]
 end

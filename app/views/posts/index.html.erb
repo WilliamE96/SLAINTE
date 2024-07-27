@@ -3,12 +3,20 @@
     <div class="post">
       <p id="post-title"><%= post.content %></p>
       <% if post.photo.attached? %>
-        <%if post.photo.key %>
-          <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+        <%= cl_image_tag post.photo.key, alt: 'Post image', class: 'post-image' %>
+        <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+        <% if pre_like %>
+          <%= button_to post_like_path(post, pre_like), method: :delete do %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
         <% else %>
-          <%=  image_tag post.photo, alt: 'Post image', class: 'post-image' %>
+          <%= button_to post_likes_path(post), method: :post do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
         <% end %>
+        <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <% end %>
     </div>
   <% end %>
 </div>
+``

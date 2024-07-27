@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  before_action :find_post, only: [:show]
   def index
     @posts = Post.all
   end
@@ -28,6 +29,9 @@ class PostsController < ApplicationController
   end
 
   private
+  def find_post
+    @post = Post.find(post_params[:post_id])
+  end
 
   def post_params
     params.require(:post).permit(:content, :photo)
