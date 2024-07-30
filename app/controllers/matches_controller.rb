@@ -2,14 +2,22 @@ class MatchesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    matched_user = User.find(params[:matched_user_id])
-    @match = Match.new(matched_user:)
+    @matched_user = User.find(params[:matched_user_id])
+    @match = Match.new(matched_user: @matched_user)
     @match.user = current_user
+    @match.status = :pending
 
+    # if @match.save
+    #   render json: { success: "Match request sent." }, status: :created
+    # else
+    #   render json: { error: "Something went wrong" }, status: :unprocessible_entity
+    # end
     if @match.save
-      render json: { success: "Match request sent."}, status: :created
+      flash[:notice] = "Match request sent."
+      redirect_to posts_path
     else
-      render json: { error: "Something went wrong"}, status: :unprocessible_entity
+      flash[:alert] = @match.errors.full_messages.join(", ")
+      redirect_to posts_path
     end
   end
 
@@ -17,9 +25,9 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
 
     if @match.matched_user == current_user && @match.update(match_params)
-      render json: { success: "Match request accepted!"}, status: :ok
+      render json: { success: "Match request accepted!" }, status: :ok
     else
-      render json: { error: "Match request declined"}, status: :unprocessable_entity
+      render json: { error: "Match request declined" }, status: :unprocessable_entity
     end
   end
 

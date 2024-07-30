@@ -17,6 +17,9 @@
             <% end %>
           <% end %>
           <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <% if current_user.matches.where(matched_user: post.user).none? %>
+            <%= button_to 'Match', matches_path(matched_user_id: post.user.id), method: :post %>
+          <% end %>
         <% end %>
     </div>
   <% end %>
