@@ -1,6 +1,6 @@
 .like-btn {
   display: inline-block;
-  border: none;
+  border: none !important;
   background: none;
 
   font-size: 24px;
@@ -8,10 +8,4 @@
 
   padding: 5px;
   margin: 0;
-}
-
-button_to {
-  border: none;
-  background: none;
-  padding: 0;
 }
