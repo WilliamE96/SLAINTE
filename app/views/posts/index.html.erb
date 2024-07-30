@@ -26,8 +26,11 @@
           <%= link_to new_post_comment_path(post), class: 'comment-button', style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>
             <i class="fa-solid fa-comment-dots" style="font-size: 24px;"></i>
           <% end %>
-        </div>
-      <% end %>
+          <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <% if current_user.matches.where(matched_user: post.user).none? %>
+            <%= button_to 'Match', matches_path(matched_user_id: post.user.id), method: :post %>
+          <% end %>
+        <% end %>
     </div>
   <% end %>
 </div>

@@ -3,7 +3,8 @@ before_action :set_post, only: [:show, :destroy]
 
   before_action :find_post, only: [:show, :destroy]
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user, :likes)
+    @user = current_user
   end
 
   def create
