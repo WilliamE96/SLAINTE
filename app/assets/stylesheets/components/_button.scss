@@ -2,10 +2,55 @@
   display: inline-block;
   border: none !important;
   background: none;
-
   font-size: 24px;
   color: #ff0000;
-
   padding: 5px;
   margin-top: 1rem;
 }
+// this is styling for the buttons on show page,when you click on the page and see the post.
+.btn-custom {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.btn-danger.btn-custom {
+  background-color: #dc3545;
+  border-color: #dc3545;
+
+  &:hover {
+    background-color: darken(#726e6e, 10%);
+    border-color: darken(#dc3545, 15%);
+  }
+}
+
+.btn-primary.btn-custom {
+  background-color: #76d671;
+  border-color: #edeff1;
+
+  &:hover {
+    background-color: darken(#6c757d, 10%);
+    border-color: darken(#6c757d, 15%);
+  }
+}
+
+.btn-secondary.btn-custom {
+  background-color: #76d671;
+  border-color: #f1f3f5;
+
+  &:hover {
+    background-color: darken(#6c757d, 10%);
+    border-color: darken(#6c757d, 15%);
+  }
+}
+// until here.
