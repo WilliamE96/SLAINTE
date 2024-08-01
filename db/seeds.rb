@@ -26,13 +26,13 @@ def attach_photo(post, filename)
   post.photo.attach(io: File.open(photo_path), filename: filename)
 end
 
-photo_urls = [
-  'https://asset.cloudinary.com/dah2rdyj2/28aea771965e6c7e5d5b11cd0051c0f5',
-  'https://asset.cloudinary.com/dah2rdyj2/71cc56ae9cde27518ba51cbcec117285',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night3.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night4.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night5.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night6.jpg'
+photo_filenames = [
+  'night1.jpg',
+  'night2.jpg',
+  'night3.jpg',
+  'night4.jpg',
+  'night5.jpg',
+  'night6.jpg'
 ]
 
 user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[0]) }
