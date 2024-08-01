@@ -1,5 +1,5 @@
 .footer {
-  background: #d2b34c;
+  background: linear-gradient(#11998E, #38EF7D);
   color: #000000;
   display: flex;
   align-items: center;
@@ -10,6 +10,8 @@
   position: fixed;
   bottom: 0;
 }
+
+// #11998E → #38EF7D
 
 .footer-links {
   display: flex;

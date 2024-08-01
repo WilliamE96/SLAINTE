@@ -1,6 +1,7 @@
 .navbar-lewagon {
   // justify-content: space-between;
-  background: white;
+  // background: white;
+  background: linear-gradient(#11998E, #38EF7D);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,7 +13,13 @@
 }
 
 .title-text {
+  font-family: Garamond, serif;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
+}
 
+#title-text-container {
+  border: 2px solid;
+  border-radius: 25% 10%;
+  background-color: #11998e90;
 }

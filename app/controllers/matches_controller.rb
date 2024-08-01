@@ -31,6 +31,12 @@ class MatchesController < ApplicationController
     end
   end
 
+  def index
+    # shows all matches that are involved with the two users interacting
+    # match requests and pending sent matches
+    @match = Match.all.includes(:user)
+  end
+
   private
 
   def match_params
