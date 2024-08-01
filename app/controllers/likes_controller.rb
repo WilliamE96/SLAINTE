@@ -18,7 +18,7 @@ class LikesController < ApplicationController
 
   def find_like
     @like = Like.find(params[:id])
- end
+  end
 
   private
   def find_post

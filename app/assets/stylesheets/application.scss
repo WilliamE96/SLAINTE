@@ -34,7 +34,7 @@ $post-background-color: #fff;
   width: 150px;
   height: 150px;
   border: 3px solid $primary-color;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .text-center {
@@ -46,12 +46,12 @@ $post-background-color: #fff;
 }
 
 .post {
-  background-color: $post-background-color;
+  background-color: #d4edda;
   border: 1px solid $post-border-color;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #38ef7eaa;
   transition: transform 0.2s ease-in-out;
 
   &:hover {
@@ -96,6 +96,9 @@ $post-background-color: #fff;
 @media (max-width: 768px) {
   .container {
     padding: 10px;
+    background-color: rgba(0,0,0,.92);
+    padding-bottom: 80px;
+    padding-top: 30px;
   }
 
   .profile-img {
