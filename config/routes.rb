@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :likes, only: [:create, :new, :destroy]
     resources :comments, only: [:new, :create]
+    post 'join', on: :member
   end
   # Match routes
   resources :matches, only: [:index, :create, :update, :destroy]
