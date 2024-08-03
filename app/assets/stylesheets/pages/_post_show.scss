@@ -42,13 +42,6 @@
 
 .comment-input-group {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-}
-
-.comment-input {
-  flex: 1;
-}
-
-.comment-submit {
 }
