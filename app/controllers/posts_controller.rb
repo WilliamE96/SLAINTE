@@ -31,6 +31,7 @@ before_action :set_post, only: [:show, :destroy]
   end
 
   private
+  
   def find_post
     @post = Post.find(params[:id])
   end

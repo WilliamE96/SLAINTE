@@ -16,5 +16,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
   # Match routes
-  resources :matches, only: [:index, :create, :update, :destroy]
+  resources :matches do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
 end

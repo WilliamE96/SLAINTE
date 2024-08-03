@@ -1,1 +1,37 @@
 <h1>Notifications</h1>
+
+<%# a notification will appear on the bell icon %>
+<%# when clicking on the bell icon you will be brought here, to a notifications
+page %>
+<%# the notfications page will display match requests recieved %>
+<%# this just has to be a line: profile picture, message and the time.(so far) %>
+
+<% if @pending_matches.any? %>
+  <ul>
+    <% @pending_matches.each do |match| %>
+      <li>
+        <%= match.user.username %> would like to join you!
+          <%= link_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success", data: { turbolinks: false } %>
+          <%= link_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger", data: { turbolinks: false } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+  <% @accepted_matches.each do |match| %>
+        Your match with <%= match.matched_user.username %> was accepted!
+  <% end %>
+
+    <%# @pending_matches.each do |match| %>
+        <%# Your match with <%= match.matched_user.username is pending!
+  <%# end %>
+
+    <% @rejected_matches.each do |match| %>
+        Your match with <%= match.matched_user.username %> was rejected!
+  <% end %>
+
+
+<%# Need a way to put the instance of match into the %>
+<%# if matched_user recieves match request
+then gets notification to either accept or join %>
