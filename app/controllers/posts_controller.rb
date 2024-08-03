@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-before_action :set_post, only: [:show, :destroy]
-
+  before_action :set_post, only: [:show, :destroy]
   before_action :find_post, only: [:show, :destroy]
+
   def index
     @posts = Post.all.includes(:user, :likes)
     @user = current_user
@@ -28,11 +28,11 @@ before_action :set_post, only: [:show, :destroy]
 
   def show
     @post = Post.find(params[:id])
-    @comment = @post.comments.build
+    # @comment = @post.comments.build
   end
 
   private
-  
+
   def find_post
     @post = Post.find(params[:id])
   end

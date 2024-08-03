@@ -1,19 +1,20 @@
+# app/controllers/comments_controller.rb
 class CommentsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, only: [:create]
 
   def create
-    @comment = @post.comments.build(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.post = @post
     @comment.user = current_user
+    # @post.comments.build(comment_params.merge(user: current_user))
+    @comment.created_at = Time.now
+    # @comment.username = current_user.username
 
     if @comment.save
-      redirect_to @post, notice: '👍'
+      redirect_to @post, notice: 'Comment was successfully created.'
     else
-      redirect_to @post, alert: '👎'
+      render :new
     end
-  end
-
-  def new
-    @comment = Comment.new
   end
 
   private

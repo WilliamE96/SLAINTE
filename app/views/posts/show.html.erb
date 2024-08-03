@@ -30,13 +30,19 @@
 
   <!-- Display Comments -->
   <h3>Comments:</h3>
+
   <ul class="list-unstyled">
-    <% @post.comments.each do |comment| %>
-      <li class="comment">
-        <strong><%= comment.user.name %>:</strong>
-        <p><%= comment.content %></p>
-        <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-      </li>
+    <% if @post.comments.count > 0 %>
+      <% @post.comments.each do |comment| %>
+        <li class="comment">
+          <p><%= comment.content %></p>
+          <p><%= comment.user %></p>
+          <%# comments do not have a time of creation when made at the moment %>
+          <small><%= comment.created_at %> ago</small>
+        </li>
+      <% end %>
+      <% else %>
+      <p>no comments 😔</p>
     <% end %>
   </ul>
 </div>
