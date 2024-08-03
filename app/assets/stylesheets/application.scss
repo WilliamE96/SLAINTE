@@ -47,12 +47,14 @@ $post-background-color: #fff;
 
 .post {
   background-color: #d4edda;
-  border: 1px solid $post-border-color;
+  // border: 1px solid $post-border-color;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 10px #38ef7eaa;
-  transition: transform 0.2s ease-in-out;
+  border-style: solid;
+  border-color: #2e2e2e;
+  // box-shadow: 0 0 10px #38ef7eaa;
+  // transition: transform 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.02);
@@ -96,7 +98,7 @@ $post-background-color: #fff;
 @media (max-width: 768px) {
   .container {
     padding: 10px;
-    background-color: rgba(249, 246, 246, 0.92);
+    background-color:#f4e1d2;
     padding-bottom: 80px;
     padding-top: 30px;
   }
