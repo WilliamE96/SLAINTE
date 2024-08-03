@@ -1,3 +1,4 @@
+Match.destroy_all
 Post.destroy_all
 User.destroy_all
 
@@ -26,7 +27,7 @@ def attach_photo(post, filename)
   post.photo.attach(io: File.open(photo_path), filename: filename)
 end
 
-photo_filenames = [
+photo_urls = [
   'night1.jpg',
   'night2.jpg',
   'night3.jpg',
@@ -35,9 +36,11 @@ photo_filenames = [
   'night6.jpg'
 ]
 
-user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[0]) }
-user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[1]) }
-user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[2]) }
-user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[3]) }
-user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[4]) }
-user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[5]) }
+user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[0]) }
+user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[1]) }
+user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[2]) }
+user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[3]) }
+user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[4]) }
+user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[5]) }
+
+Match.create(user_id: user1.id, matched_user_id: user2.id, status: 'pending', created_at: Time.now, updated_at: Time.now)

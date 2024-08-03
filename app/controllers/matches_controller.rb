@@ -25,16 +25,34 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
 
     if @match.matched_user == current_user && @match.update(match_params)
-      render json: { success: "Match request accepted!" }, status: :ok
+      flash[:notice] = "Match was accepted by #{@matched_user}"
     else
-      render json: { error: "Match request declined" }, status: :unprocessable_entity
+      flash[:notice] = "Match was rejected by #{@matched_user}"
     end
+    # if @match.matched_user == current_user && @match.update(match_params)
+    #   render json: { success: "Match request accepted!" }, status: :ok
+    # else
+    #   render json: { error: "Match request declined" }, status: :unprocessable_entity
+    # end
   end
 
   def index
     # shows all matches that are involved with the two users interacting
     # match requests and pending sent matches
-    @match = Match.all.includes(:user)
+    @accepted_matches = Match.where(user: current_user, status: :accepted)
+    @pending_matches = Match.where(user: current_user, status: :pending)
+    @rejected_matches = Match.where(user: current_user, status: :rejected)
+  end
+
+  def accept
+    @match = Match.find(params[:id])
+    @match.update(status: :accepted)
+    # redirect_to matches_path
+  end
+
+  def reject
+    @match = Match.find(params[:id])
+    @match.update(status: :rejected)
   end
 
   private

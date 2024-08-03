@@ -17,5 +17,10 @@ Rails.application.routes.draw do
     post 'join', on: :member
   end
   # Match routes
-  resources :matches, only: [:index, :create, :update, :destroy]
+  resources :matches do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
 end
