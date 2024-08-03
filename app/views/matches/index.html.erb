@@ -11,8 +11,8 @@ page %>
     <% @pending_matches.each do |match| %>
       <li>
         <%= match.user.username %> would like to join you!
-          <%= link_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success", data: { turbolinks: false } %>
-          <%= link_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger", data: { turbolinks: false } %>
+          <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success", data: { turbolinks: false } %>
+          <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger", data: { turbolinks: false } %>
       </li>
     <% end %>
   </ul>

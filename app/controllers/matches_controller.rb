@@ -47,12 +47,13 @@ class MatchesController < ApplicationController
   def accept
     @match = Match.find(params[:id])
     @match.update(status: :accepted)
-    # redirect_to matches_path
+    redirect_to matches_path
   end
 
   def reject
     @match = Match.find(params[:id])
     @match.update(status: :rejected)
+    redirect_to matches_path
   end
 
   private
