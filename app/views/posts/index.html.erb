@@ -10,33 +10,37 @@
       <% end %>
 
       <% pre_like = post.likes.find { |like| like.user_id == current_user.id } %>
-      <div class="post-interactions" style="display: flex; align-items: center; justify-content: space-between;">
-        <div class="like-section" style="text-align: center;">
-          <% if pre_like %>
-            <%= button_to post_like_path(post, pre_like), method: :delete, class: "like-button liked",
-            style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
-              <i class="fa-solid fa-heart" style="color: red; font-size: 24px;"></i>
+      <div class="post-interactions" style="display: flex; align-items: center; justify-content: space-around;">
+
+        <div>
+          <div class="like-section" style="text-align: center;">
+            <% if pre_like %>
+              <%= button_to post_like_path(post, pre_like), method: :delete, class: "like-button liked",
+              style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+                <i class="fa-solid fa-heart" style="color: red; font-size: 24px;"></i>
+              <% end %>
+            <% else %>
+              <%= button_to post_likes_path(post), method: :post, class: "like-button not-liked",
+              style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+                <i class="fa-regular fa-heart" style="color: grey; font-size: 24px;"></i>
+              <% end %>
             <% end %>
-          <% else %>
-            <%= button_to post_likes_path(post), method: :post, class: "like-button not-liked",
-            style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
-              <i class="fa-regular fa-heart" style="color: grey; font-size: 24px;"></i>
-            <% end %>
-          <% end %>
+          </div>
+
+          <p style="margin: 5px 0 0; font-size: 12px; color: #333;">
+            <%= post.likes.count %> <%= post.likes.count == 1 ? 'Like' : 'Likes' %>
+          </p>
         </div>
 
-        <p style="margin: 5px 0 0; font-size: 12px; color: #333;">
-          <%= post.likes.count %> <%= post.likes.count == 1 ? 'Like' : 'Likes' %>
-        </p>
-
         <% if current_user.matches.where(matched_user: post.user).none? %>
-          <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post %>
+          <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
         <% end %>
 
         <%= link_to new_post_comment_path(post), class: "comment-button",
-        style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>
-          <i class="fa-solid fa-comment-dots" style="font-size: 24px"></i>
+          style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>
+            <i class="fa-solid fa-comment-dots" style="font-size: 24px"></i>
         <% end %>
+
       </div>
     </div>
   <% end %>
