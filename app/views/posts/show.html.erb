@@ -19,26 +19,19 @@
   <% end %>
 
   <!-- Comment Form -->
-  <h3>Add a Comment:</h3>
-  <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :content, "Comment:" %>
-      <%= form.text_area :content, rows: 3, class: "form-control" %>
-    </div>
-    <%= form.submit "Post Comment", class: "btn btn-primary" %>
+  <%= simple_form_for [@post, @comment] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit %>
   <% end %>
 
   <!-- Display Comments -->
   <h3>Comments:</h3>
-
   <ul class="list-unstyled">
     <% if @post.comments.count > 0 %>
       <% @post.comments.each do |comment| %>
         <li class="comment">
           <p><%= comment.content %></p>
-          <p><%= comment.user %></p>
-          <%# comments do not have a time of creation when made at the moment %>
-          <small><%= comment.created_at %> ago</small>
+          <p><%= comment.user.username %></p>
         </li>
       <% end %>
       <% else %>
