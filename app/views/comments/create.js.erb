@@ -1,0 +1,19 @@
+<% if @comment.persisted? %>
+  const commentsList = document.querySelector('.list-unstyled');
+  const newComment = document.createElement('li');
+  newComment.classList.add('comment');
+
+  const commentContent = `
+    <strong><%= @comment.user.name %>:</strong>
+    <p><%= j @comment.content %></p>
+    <small><%= time_ago_in_words(@comment.created_at) %> ago</small>
+  `;
+
+  newComment.innerHTML = commentContent;
+  commentsList.appendChild(newComment);
+
+  // Clear the form input
+  document.querySelector('#new_comment textarea').value = '';
+<% else %>
+  alert('Error saving comment');
+<% end %>

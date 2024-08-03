@@ -22,24 +22,23 @@
   <% end %>
 
   <!-- Comment Form -->
-  <h3>Add a Comment:</h3>
-  <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
-    <div class="form-group">
-      <%= form.label :content, "Comment:" %>
-      <%= form.text_area :content, rows: 3, class: "form-control" %>
-    </div>
-    <%= form.submit "Post Comment", class: "btn btn-primary" %>
+  <%= simple_form_for [@post, @comment] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit %>
   <% end %>
 
   <!-- Display Comments -->
   <h3>Comments:</h3>
   <ul class="list-unstyled">
-    <% @post.comments.each do |comment| %>
-      <li class="comment">
-        <strong><%= comment.user.name %>:</strong>
-        <p><%= comment.content %></p>
-        <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-      </li>
+    <% if @post.comments.count > 0 %>
+      <% @post.comments.each do |comment| %>
+        <li class="comment">
+          <p><%= comment.content %></p>
+          <p><%= comment.user.username %></p>
+        </li>
+      <% end %>
+      <% else %>
+      <p>no comments 😔</p>
     <% end %>
   </ul>
 </div>

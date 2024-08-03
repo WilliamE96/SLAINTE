@@ -1,1 +1,8 @@
-Hello
+<h3>Add a Comment:</h3>
+<%= form_with(model: [@post, @post.comments.build], local: false, id: "new_comment") do |form| %>
+  <div class="form-group">
+    <%= form.label :content, "Comment:" %>
+    <%= form.text_area :content, rows: 3, class: "form-control" %>
+  </div>
+  <%= form.submit "Post Comment", class: "btn btn-primary" %>
+<% end %>
