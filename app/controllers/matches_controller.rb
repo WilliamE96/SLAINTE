@@ -39,9 +39,9 @@ class MatchesController < ApplicationController
   def index
     # shows all matches that are involved with the two users interacting
     # match requests and pending sent matches
-    @accepted_matches = Match.where(user: current_user, status: :accepted)
-    @pending_matches = Match.where(user: current_user, status: :pending)
-    @rejected_matches = Match.where(user: current_user, status: :rejected)
+    @accepted_matches = Match.where(matched_user: current_user, status: :accepted)
+    @pending_matches = Match.where(matched_user: current_user, status: :pending)
+    @rejected_matches = Match.where(matched_user: current_user, status: :rejected)
   end
 
   def accept
