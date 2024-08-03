@@ -1,7 +1,10 @@
 .comment-button {
   font-size: 25px;
-  color: darkgoldenrod;
+  color: #ffb400;
   text-decoration: none;
+  opacity: 0.9;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .image-container {
