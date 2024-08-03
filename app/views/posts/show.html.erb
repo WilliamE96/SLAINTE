@@ -9,6 +9,7 @@
     <%= link_to 'Back', posts_path, class: "btn btn-secondary btn-custom" %>
   </p>
   <p><%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %></p>
+
   <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
   <% if pre_like %>
     <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-btn" do %>
@@ -19,4 +20,26 @@
       <i class="fa-regular fa-heart"></i>
     <% end %>
   <% end %>
+
+  <!-- Comment Form -->
+  <h3>Add a Comment:</h3>
+  <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :content, "Comment:" %>
+      <%= form.text_area :content, rows: 3, class: "form-control" %>
+    </div>
+    <%= form.submit "Post Comment", class: "btn btn-primary" %>
+  <% end %>
+
+  <!-- Display Comments -->
+  <h3>Comments:</h3>
+  <ul class="list-unstyled">
+    <% @post.comments.each do |comment| %>
+      <li class="comment">
+        <strong><%= comment.user.name %>:</strong>
+        <p><%= comment.content %></p>
+        <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+      </li>
+    <% end %>
+  </ul>
 </div>

@@ -28,9 +28,11 @@ before_action :set_post, only: [:show, :destroy]
 
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments.build
   end
 
   private
+  
   def find_post
     @post = Post.find(params[:id])
   end

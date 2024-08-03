@@ -1,3 +1,4 @@
+Match.destroy_all
 Post.destroy_all
 User.destroy_all
 
@@ -27,17 +28,19 @@ def attach_photo(post, filename)
 end
 
 photo_urls = [
-  'https://asset.cloudinary.com/dah2rdyj2/28aea771965e6c7e5d5b11cd0051c0f5',
-  'https://asset.cloudinary.com/dah2rdyj2/71cc56ae9cde27518ba51cbcec117285',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night3.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night4.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night5.jpg',
-  'https://res.cloudinary.com/your_cloud_name/image/upload/v1627301134/night6.jpg'
+  'night1.jpg',
+  'night2.jpg',
+  'night3.jpg',
+  'night4.jpg',
+  'night5.jpg',
+  'night6.jpg'
 ]
 
-user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[0]) }
-user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[1]) }
-user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[2]) }
-user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[3]) }
-user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[4]) }
-user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_filenames[5]) }
+user1.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[0]) }
+user2.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[1]) }
+user3.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[2]) }
+user4.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[3]) }
+user5.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[4]) }
+user6.posts.create!(content: 'First post!').tap { |post| attach_photo(post, photo_urls[5]) }
+
+Match.create(user_id: user1.id, matched_user_id: user2.id, status: 'pending', created_at: Time.now, updated_at: Time.now)
