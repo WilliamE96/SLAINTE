@@ -3,8 +3,11 @@
   <% if @post.photo.attached? %>
     <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
   <% end %>
-  <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
-  <p><%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %></p>
+  <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-custom" %>
+  <p>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary btn-custom" %>
+    <%= link_to 'Back', posts_path, class: "btn btn-secondary btn-custom" %>
+  </p>
   <p><%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %></p>
 
   <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
