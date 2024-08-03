@@ -1,44 +1,64 @@
 <div class="container">
+  <!-- Post Title -->
   <p id="post-title"><%= @post.content %></p>
+
+  <!-- Post Image -->
   <% if @post.photo.attached? %>
     <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
   <% end %>
-  <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-custom" %>
-  <p>
-    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary btn-custom" %>
-    <%= link_to 'Back', posts_path, class: "btn btn-secondary btn-custom" %>
-  </p>
-  <p><%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %></p>
 
-  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
-  <% if pre_like %>
-    <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-btn" do %>
-      <i class="fa-solid fa-heart"></i>
-    <% end %>
-  <% else %>
-    <%= button_to post_likes_path(@post), method: :post, class: "like-btn" do %>
-      <i class="fa-regular fa-heart"></i>
-    <% end %>
-  <% end %>
+  <!-- Post Actions -->
+  <div class="post-actions">
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-custom" %>
+      <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary btn-custom" %>
+      <%= link_to 'Back', posts_path, class: "btn btn-secondary btn-custom" %>
+    </div>
+  </div>
+
+  <!-- Likes Section -->
+  <div class="likes-section">
+    <div class="like-icon">
+      <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
+      <% if pre_like %>
+        <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-btn" do %>
+          <i class="fa-solid fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= button_to post_likes_path(@post), method: :post, class: "like-btn" do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="like-count">
+      <p>
+        <%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %>
+      </p>
+    </div>
+  </div>
 
   <!-- Comment Form -->
-  <%= simple_form_for [@post, @comment] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
+  <div class="comment-form">
+    <%= simple_form_for [@post, @comment] do |f| %>
+      <div class="comment-input-group">
+        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment here...' } %>
+        <%= f.submit 'Post', class: 'btn btn-primary comment-submit' %>
+      </div>
+    <% end %>
+  </div>
 
   <!-- Display Comments -->
-  <h3>Comments:</h3>
   <ul class="list-unstyled">
-    <% if @post.comments.count > 0 %>
+    <% if @post.comments.any? %>
       <% @post.comments.each do |comment| %>
         <li class="comment">
           <p><%= comment.content %></p>
           <p><%= comment.user.username %></p>
         </li>
       <% end %>
-      <% else %>
-      <p>No comments yet😔</p>
+    <% else %>
+      <p>No Comments Yet😔</p>
     <% end %>
   </ul>
 </div>

@@ -1,7 +1,7 @@
 <h1>Create a Post</h1>
 
 <%= simple_form_for @post, url: posts_path, html: { multipart: true } do |f| %>
-  <%= f.input :content, label: 'Content' %>
+  <%= f.input :content, label: %>
   <%= f.input :photo, as: :file %>
 
   <%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>
