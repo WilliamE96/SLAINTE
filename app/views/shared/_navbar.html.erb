@@ -5,7 +5,6 @@
         <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
       <% else %>
         <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
-        <%# <%= debug current_user.photo %>
       <% end %>
     <% end %>
   <% end %>
@@ -16,9 +15,11 @@
   </div>
   <%# <button class="navbar-toggler me-2 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span> %>
-    <%= link_to matches_path do %>
-      <i class="fa-solid fa-bell fa-xl me-2" style="color: #000000;"></i>
-    <% end %>
+    <div class="header-link">
+      <%= link_to matches_path do %>
+        <i class="bell fa-solid fa-bell fa-xl me-2" style="color: #ffb400;"></i>
+      <% end %>
+    </div>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

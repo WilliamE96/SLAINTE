@@ -1,5 +1,6 @@
 .footer {
-  background: linear-gradient(#11998E, #38EF7D);
+  // background: linear-gradient(#11998E, #38EF7D);
+  background: #005f4e;
   color: #000000;
   display: flex;
   align-items: center;
@@ -9,6 +10,8 @@
   padding: 0 20px;
   position: fixed;
   bottom: 0;
+  margin-bottom: 0px;
+  border-top: solid;
 }
 
 // #11998E → #38EF7D
@@ -22,12 +25,14 @@
 }
 
 .footer-links a {
-  color: #000000;
-  opacity: 0.8;
+  color: #ffb400;
+  // opacity: 0.8;
   text-decoration: none;
   font-size: 28px;
   padding: 0 10px;
   transition: opacity 0.3s;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 
 .footer-links a:hover {

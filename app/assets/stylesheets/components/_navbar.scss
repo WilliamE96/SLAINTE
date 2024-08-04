@@ -1,7 +1,12 @@
 .navbar-lewagon {
   // justify-content: space-between;
   // background: white;
-  background: linear-gradient(#11998E, #38EF7D);
+  // background: linear-gradient(#11998E, #38EF7D);
+  background: #005f4e;
+  // box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 15px 0px;
+  // box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px 0px;
+  border-bottom: solid;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,13 +18,40 @@
 }
 
 .title-text {
-  font-family: Garamond, serif;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
+  // font-family: Garamond, serif;
+  // -webkit-text-stroke-width: 0.5px;
+  // -webkit-text-stroke-color: black;
+  // font-family: 'Great Vibes',;
+  // font-size: 35px;
+  // color: #005f4e; /* Deep Emerald Green */
+  // text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  // background: linear-gradient(20deg, #ffb400, #ff7a6e); /* Golden Amber to Warm Coral */
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke-width: 0.5px;
+  // -webkit-text-stroke-color: black;
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  color: #ffb400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow:
+      1px 1px 0 #2e2e2e,
+      2px 2px 0 #2e2e2e,
+      3px 3px 0 #2e2e2e;
 }
 
-#title-text-container {
-  border: 2px solid;
-  border-radius: 25% 10%;
-  background-color: #11998e90;
+// #title-text-container {
+//   border: 2px solid;
+//   border-radius: 25% 10%;
+//   background-color: #11998e90;
+// }
+
+.header-link {
+  opacity: 0.8;
+}
+
+.bell {
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
