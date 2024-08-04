@@ -1,7 +1,19 @@
 <div class="container">
   <% @posts.each do |post| %>
     <div class="post">
-      <p id="post-title"><%= post.content %></p>
+
+      <div class="post-header">
+        <% if user_signed_in? %>
+          <%= link_to user_path(post.user) do %> <!-- Link to the post's user -->
+            <% if post.user.photo.attached? %>
+              <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %> <!-- Display the post's user's photo -->
+            <% else %>
+              <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "Default avatar" %>
+            <% end %>
+          <% end %> 
+        <% end %>
+        <p id="post-title"><%= post.content %></p>
+      </div>
 
       <% if post.photo.attached? %>
         <%= link_to post, class: "w-100" do %>
