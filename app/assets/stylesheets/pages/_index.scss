@@ -22,12 +22,12 @@
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  // box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #41403e;
   display: inline-block;
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 23px;
   outline: none;
   padding: .75rem;
@@ -35,6 +35,7 @@
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
+  padding: 8px;
 }
 // <!-- HTML !-->
 // <button class="button-55" role="button">Button 55</button>
