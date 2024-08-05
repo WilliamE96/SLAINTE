@@ -1,14 +1,17 @@
+// Styles for the post actions section
 .post-actions {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
 }
 
+// Styles for the action buttons within the post actions section
 .action-buttons {
   display: flex;
   gap: 10px;
 }
 
+// Styles for the likes section
 .likes-section {
   display: flex;
   align-items: center;
@@ -16,11 +19,13 @@
   margin-top: 1em;
 }
 
+// Styles for the like icon
 .like-icon {
   display: flex;
   align-items: center;
 }
 
+// Styles for the like button
 .like-btn {
   display: flex;
   font-size: 1.5em;
@@ -28,20 +33,58 @@
   margin-bottom: 1.4em;
 }
 
+// Styles for the like count
 .like-count {
   display: flex;
   align-items: center;
   font-size: 1em;
 }
 
+// Styles for the comment form
 .comment-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+// Styles for the comment input group within the comment form
 .comment-input-group {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+}
+
+// Styles for the unordered list with class 'list-unstyled'
+ul.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+// Styles for individual comments within the unordered list
+ul.list-unstyled .comment {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+// Styles for paragraphs within individual comments
+ul.list-unstyled .comment p {
+  margin: 0;
+}
+
+// Styles for the last paragraph within individual comments
+ul.list-unstyled .comment p:last-child {
+  font-size: 12px;
+  color: #777;
+  text-align: right;
+}
+
+// Styles for the paragraph following the unordered list
+ul.list-unstyled + p {
+  font-style: italic;
+  color: #888;
+  text-align: center;
+  margin-top: 20px;
 }
