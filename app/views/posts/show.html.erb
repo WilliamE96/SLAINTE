@@ -42,7 +42,7 @@
   <div class="comment-form">
     <%= simple_form_for [@post, @comment] do |f| %>
       <div class="comment-input-group">
-        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment here...' } %>
+        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment' } %>
         <%= f.submit 'Post', class: 'btn btn-primary comment-submit' %>
       </div>
     <% end %>
@@ -62,4 +62,3 @@
     <% end %>
   </ul>
 </div>
-

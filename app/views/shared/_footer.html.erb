@@ -3,7 +3,13 @@
     <%= link_to posts_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
-    <a href="#"><i class="fa-solid fa-comment-dots"></i></a>
+    <% if @chatroom.present? %>
+      <%= link_to chatroom_path(@chatroom) do %>
+        <i class="fa-solid fa-comment-dots"></i>
+      <% end %>
+    <% else %>
+      <a href="#"><i class="fa-solid fa-comment-dots"></i></a>
+    <% end %>
     <%= link_to new_post_path, class: 'highlight-icon' do %>
       <i class="fa-solid fa-circle-plus" id="post-icon"></i>
     <% end %>
