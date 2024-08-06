@@ -44,9 +44,15 @@
           </p>
         </div>
 
-        <% if current_user.matches.where(matched_user: post.user).none? %>
+        <% if current_user.sent_matches.where(matched_user: post.user, status: :pending).exists? %>
+          <p>Request with <%= post.user.username %> pending.</p>
+        <% elsif current_user.sent_matches.where(matched_user: post.user, status: :accepted).exists? %>
+          <p>Already matched with <%= post.user.username %>.</p>
+        <% else %>
           <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
         <% end %>
+
+
 
         <%= link_to post, class: "comment-button",
         style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>

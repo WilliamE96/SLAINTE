@@ -13,11 +13,17 @@
         <strong>Sláinte</strong>
     </h1>
   </div>
-  <%# <button class="navbar-toggler me-2 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span> %>
+
     <div class="header-link">
       <%= link_to matches_path do %>
-        <i class="bell fa-solid fa-bell me-2" style="font-size: 28px;"></i>
+        <i class="bell fa-solid fa-bell fa-xl me-2" style="color: #ffb400; position: relative;">
+          <% if user_signed_in? %>
+            <% pending_matches_count = current_user.received_matches.where(status: :pending).count %>
+              <% if pending_matches_count > 0 %>
+                <span class="badge"><%= pending_matches_count %></span>
+            <% end %>
+          <% end %>
+          </i>
       <% end %>
     </div>
 
@@ -32,7 +38,6 @@
           <%= link_to "#{current_user.username}", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </li>
       <% else %>
         <li class="nav-item">

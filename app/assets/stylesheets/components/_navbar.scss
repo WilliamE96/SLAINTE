@@ -51,8 +51,28 @@
   opacity: 0.8;
 }
 
+// .bell {
+//   -webkit-text-stroke-width: 0.5px;
+//   -webkit-text-stroke-color: black;
+// }
+
 .bell {
+  position: relative;
+  display: inline-block;
+  -webkit-text-stroke-width: 0.5px;
   color: #ffb400;
-  -webkit-text-stroke-width: 0.9px;
   -webkit-text-stroke-color: black;
+}
+
+.bell .badge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  padding: 5px 7px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 6px;
+  font-weight: bold;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0);
 }
