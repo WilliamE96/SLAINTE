@@ -1,15 +1,15 @@
 <div class="container">
-  <!-- Post Title -->
+  <%# Post Title %>
   <p id="post-title"><%= @post.content %></p>
 
-  <!-- Post Image -->
+  <%# Post Image %>
   <% if @post.photo.attached? %>
     <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
   <% end %>
 
-  <!-- Post Actions -->
+  <%# Post Actions %>
   <div class="post-actions">
-    <!-- Action Buttons -->
+    <%# Action Buttons %>
     <div class="action-buttons">
       <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-custom" %>
       <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary btn-custom" %>
@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <!-- Likes Section -->
+  <%# Likes Section %>
   <div class="likes-section">
     <div class="like-icon">
       <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
@@ -38,17 +38,17 @@
     </div>
   </div>
 
-  <!-- Comment Form -->
+  <%# Comment Form %>
   <div class="comment-form">
     <%= simple_form_for [@post, @comment] do |f| %>
       <div class="comment-input-group">
-        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment here...' } %>
+        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment' } %>
         <%= f.submit 'Post', class: 'btn btn-primary comment-submit' %>
       </div>
     <% end %>
   </div>
 
-  <!-- Display Comments -->
+  <%# Display Comments %>
   <ul class="list-unstyled">
     <% if @post.comments.any? %>
       <% @post.comments.each do |comment| %>
