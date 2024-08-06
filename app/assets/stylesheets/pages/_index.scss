@@ -2,10 +2,12 @@
 @import "home";
 
 .post-image {
-  max-width: 300px;
+  width: 100%;
   height: auto;
+  max-width: 300px;
   margin: auto 0;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .container {
