@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :new]
     post 'join', on: :member
   end
+
   # Match routes
   resources :matches do
     member do
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+
+  # Friends routes
+  get "friends", to: "pages#friends"
+
   # Chatrooms routes
   resources :chatrooms, only: :show do
     resources :messages, only: :create
