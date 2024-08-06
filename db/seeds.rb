@@ -3,12 +3,12 @@ Post.destroy_all
 User.destroy_all
 
 users = [
-  { email: 'user1@example.com', password: 'password', password_confirmation: 'password', username: 'user1' },
-  { email: 'user2@example.com', password: 'password', password_confirmation: 'password', username: 'user2' },
-  { email: 'user3@example.com', password: 'password', password_confirmation: 'password', username: 'user3' },
-  { email: 'user4@example.com', password: 'password', password_confirmation: 'password', username: 'user4' },
-  { email: 'user5@example.com', password: 'password', password_confirmation: 'password', username: 'user5' },
-  { email: 'user6@example.com', password: 'password', password_confirmation: 'password', username: 'user6' }
+  { email: 'user1@example.com', password: 'password', password_confirmation: 'password', username: 'Max' },
+  { email: 'user2@example.com', password: 'password', password_confirmation: 'password', username: 'Zoe' },
+  { email: 'user3@example.com', password: 'password', password_confirmation: 'password', username: 'Nik' },
+  { email: 'user4@example.com', password: 'password', password_confirmation: 'password', username: 'Ella' },
+  { email: 'user5@example.com', password: 'password', password_confirmation: 'password', username: 'Ron' },
+  { email: 'user6@example.com', password: 'password', password_confirmation: 'password', username: 'Will' }
 ]
 
 users.each do |user|
