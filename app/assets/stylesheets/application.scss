@@ -14,7 +14,7 @@
 @import "components/comment";
 @import 'pages/post_show';
 @import "components/join";
-
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 // this is some extra design for the profile-page-show.
 // the code starts from here until.
@@ -82,8 +82,9 @@ $post-background-color: #fff;
 
   .post-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // justify-content: space-between;
+    gap: 10px;
+    // align-items: center;
     margin-bottom: 10px;
 
     .post-username {

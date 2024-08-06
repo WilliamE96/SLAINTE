@@ -4,13 +4,13 @@
 
       <div class="post-header">
         <% if user_signed_in? %>
-          <%= link_to user_path(post.user) do %> <!-- Link to the post's user -->
+          <%= link_to user_path(post.user) do %>
             <% if post.user.photo.attached? %>
-              <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %> <!-- Display the post's user's photo -->
+              <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %>
             <% else %>
               <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "Default avatar" %>
             <% end %>
-          <% end %> 
+          <% end %>
         <% end %>
         <p id="post-title"><%= post.content %></p>
       </div>
@@ -50,7 +50,7 @@
 
         <%= link_to post, class: "comment-button",
         style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>
-          <i class="fa-solid fa-comment-dots" style="font-size: 24px"></i>
+          <i class="fa-solid fa-comment-dots" style="font-size: 28px"></i>
         <% end %>
 
       </div>
