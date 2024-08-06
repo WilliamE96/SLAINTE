@@ -4,13 +4,13 @@
 
       <div class="post-header">
         <% if user_signed_in? %>
-          <%= link_to user_path(post.user) do %> <!-- Link to the post's user -->
+          <%= link_to user_path(post.user) do %>
             <% if post.user.photo.attached? %>
-              <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %> <!-- Display the post's user's photo -->
+              <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %>
             <% else %>
               <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "Default avatar" %>
             <% end %>
-          <% end %> 
+          <% end %>
         <% end %>
         <p id="post-title"><%= post.content %></p>
       </div>
@@ -44,9 +44,15 @@
           </p>
         </div>
 
-        <% if current_user.matches.where(matched_user: post.user).none? %>
+        <% if current_user.sent_matches.where(matched_user: post.user, status: :pending).exists? %>
+          <p>Request with <%= post.user.username %> pending.</p>
+        <% elsif current_user.sent_matches.where(matched_user: post.user, status: :accepted).exists? %>
+          <p>Already matched with <%= post.user.username %>.</p>
+        <% else %>
           <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
         <% end %>
+
+
 
         <%= link_to post, class: "comment-button",
         style: "font-size: 24px; padding: 5px 10px; display: inline-flex; align-items: center;" do %>

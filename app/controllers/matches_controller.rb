@@ -3,15 +3,9 @@ class MatchesController < ApplicationController
 
   def create
     @matched_user = User.find(params[:matched_user_id])
-    @match = Match.new(matched_user: @matched_user)
+    @match = Match.new(matched_user: @matched_user, user: current_user, status: :pending)
     @match.user = current_user
-    @match.status = :pending
 
-    # if @match.save
-    #   render json: { success: "Match request sent." }, status: :created
-    # else
-    #   render json: { error: "Something went wrong" }, status: :unprocessible_entity
-    # end
     if @match.save
       flash[:notice] = "Match request sent."
       redirect_to posts_path
@@ -22,39 +16,39 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match = Match.find(params[:id])
+    @match = current_user.received_matches.find(params[:id])
 
-    if @match.matched_user == current_user && @match.update(match_params)
+    if @match.update(match_params)
       flash[:notice] = "Match was accepted by #{@matched_user}"
     else
       flash[:notice] = "Match was rejected by #{@matched_user}"
     end
-    # if @match.matched_user == current_user && @match.update(match_params)
-    #   render json: { success: "Match request accepted!" }, status: :ok
-    # else
-    #   render json: { error: "Match request declined" }, status: :unprocessable_entity
-    # end
   end
 
   def index
-    # shows all matches that are involved with the two users interacting
-    # match requests and pending sent matches
-    @accepted_matches = Match.where(matched_user: current_user, status: :accepted)
-    @pending_matches = Match.where(matched_user: current_user, status: :pending)
-    @rejected_matches = Match.where(matched_user: current_user, status: :rejected)
+    @sent_matches = current_user.sent_matches.where(status: :pending)
+    @received_matches = current_user.received_matches.where(status: :pending)
+    @accepted_matches = current_user.received_matches.where(status: :accepted)
+
   end
 
   def accept
-    @match = Match.find(params[:id])
-    @match.update(status: :accepted)
-    flash[:notice] = "Match accepted!"
+    @match = current_user.received_matches.find(params[:id])
+    if @match.update(status: :accepted)
+      flash[:notice] = "Match accepted!"
+    else
+      flash[:alert] = "Failed to accept the match."
+    end
     redirect_to matches_path
   end
 
   def reject
-    @match = Match.find(params[:id])
-    @match.update(status: :rejected)
-    flash[:notice] = "Match rejected!"
+    @match = current_user.received_matches.find(params[:id])
+    if @match.update(status: :rejected)
+      flash[:notice] = "Match rejected!"
+    else
+      flash[:alert] = "Failed to reject the match."
+    end
     redirect_to matches_path
   end
 
