@@ -44,12 +44,14 @@
           </p>
         </div>
 
-        <% if current_user.sent_matches.where(matched_user: post.user, status: :pending).exists? %>
-          <p>Request with <%= post.user.username %> pending.</p>
-        <% elsif current_user.sent_matches.where(matched_user: post.user, status: :accepted).exists? %>
-          <p>Already matched with <%= post.user.username %>.</p>
-        <% else %>
-          <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
+        <% if post.user != current_user %>
+          <% if current_user.sent_matches.where(matched_user: post.user, status: :pending).exists? %>
+            <img src="https://res.cloudinary.com/dah2rdyj2/image/upload/fl_preserve_transparency/v1722970847/wait_fxf1fz.jpg?_s=public-apps" alt="Flaticon", class="icon-class", id="icon-hourglass">
+          <% elsif current_user.sent_matches.where(matched_user: post.user, status: :accepted).exists? %>
+            <img src="https://res.cloudinary.com/dah2rdyj2/image/upload/fl_preserve_transparency/v1722970833/beer_awm9mk.jpg" alt="Flaticon", class="icon-class">
+          <% else %>
+            <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
+          <% end %>
         <% end %>
 
 
