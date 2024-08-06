@@ -17,7 +17,12 @@
     <span class="navbar-toggler-icon"></span> %>
     <div class="header-link">
       <%= link_to matches_path do %>
-        <i class="bell fa-solid fa-bell fa-xl me-2" style="color: #ffb400;"></i>
+        <i class="bell fa-solid fa-bell fa-xl me-2" style="color: #ffb400; position: relative;">
+          <% pending_matches_count = current_user.matches.where(status: :pending).count %>
+          <% if pending_matches_count > 0 %>
+            <span class="badge"><%= pending_matches_count %></span>
+          <% end %>
+          </i>
       <% end %>
     </div>
 
