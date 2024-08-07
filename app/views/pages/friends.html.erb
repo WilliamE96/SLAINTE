@@ -1,0 +1,9 @@
+<h1>My Friends</h1>
+
+<ul>
+  <% @friends.each do |match| %>
+    <li>
+      <%= link_to match.matched_user.username, chatroom_path(match.matched_user) %>
+    </li>
+  <% end %>
+</ul>
