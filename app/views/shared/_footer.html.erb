@@ -3,7 +3,7 @@
     <%= link_to posts_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
-    <% if current_user.matches.any? %>
+    <% if current_user && current_user.matches.any? %>
       <%= link_to chats_path do %>
         <i class="fa-solid fa-comment-dots"></i>
       <% end %>
