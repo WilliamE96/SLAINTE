@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc)
   end
 
+  def map
+    @users = User.all
+  end
+
+  def locations
+    @users = User.all
+    render json: @users.to_json(only: [:id, :name, :latitude, :longitude])
+  end
+
   private
 
   def set_user

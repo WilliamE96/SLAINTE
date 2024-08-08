@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # User routes
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    collection do
+      get 'map'
+      get 'locations'
+    end
+  end
 
   # Post routes
   resources :posts, only: [:index, :create, :new, :destroy]
