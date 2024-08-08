@@ -22,11 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
-  # Chatrooms routes
+  # Chat routes
   get "friends", to: "pages#friends"
-
-  # Chatrooms routes
-  resources :chatrooms, only: :show do
+  get "chats", to: "pages#chats"
+  resources :matches, only: :show do
     resources :messages, only: :create
   end
 end
