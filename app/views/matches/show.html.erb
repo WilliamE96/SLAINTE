@@ -1,8 +1,8 @@
-<div class="container chatroom">
-  <h1><%= @chatroom.name %> Chat</h1>
+<div class="container chat">
+  <h1>Chat</h1>
 
   <div class="messages">
-    <% @chatroom.messages.each do |message| %>
+    <% @match.messages.each do |message| %>
       <div id="message-<%= message.id %>">
         <small>
           <strong><%= message.user.username %></strong>
@@ -13,7 +13,7 @@
     <% end %>
   </div>
 
-  <%= simple_form_for [@chatroom, @message],
+  <%= simple_form_for [@match, @message],
     html: {class: "d-flex"} do |f|
   %>
     <%= f.input :content,
