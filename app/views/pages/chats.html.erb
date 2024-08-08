@@ -1,0 +1,10 @@
+<h1>My Chat</h1>
+
+<ul>
+  <% @friends.each do |match| %>
+    <li>
+      <%= link_to match.matched_user.username, match_path(match) %>
+      <%= match.messages.last.content %>
+    </li>
+  <% end %>
+</ul>

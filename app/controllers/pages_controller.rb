@@ -3,4 +3,12 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def friends
+    @friends = current_user.matches.where(status: "accepted")
+  end
+
+  def chats
+    @friends = current_user.matches.where(status: "accepted")
+  end
 end

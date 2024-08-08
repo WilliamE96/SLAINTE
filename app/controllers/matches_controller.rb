@@ -52,9 +52,22 @@ class MatchesController < ApplicationController
     redirect_to matches_path
   end
 
+  def show
+    @match = Match.find(params[:id])
+    @message = Message.new
+  end
+
   private
 
   def match_params
     params.require(:match).permit(:status)
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_match
+    @match = @user.matches.find(params[:id])
   end
 end
