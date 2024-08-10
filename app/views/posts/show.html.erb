@@ -11,9 +11,9 @@
   <div class="post-actions">
     <%# Action Buttons %>
     <div class="action-buttons">
-      <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-custom" %>
-      <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary btn-custom" %>
-      <%= link_to 'Back', posts_path, class: "btn btn-secondary btn-custom" %>
+      <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-custom-yellow" %>
+      <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-custom-teal" %>
+      <%= link_to 'Back', posts_path, class: "btn btn-custom-teal" %>
     </div>
   </div>
 
@@ -43,7 +43,7 @@
     <%= simple_form_for [@post, @comment] do |f| %>
       <div class="comment-input-group">
         <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment' } %>
-        <%= f.submit 'Post', class: 'btn btn-primary comment-submit' %>
+        <%= f.submit 'Post', class: 'btn btn-custom-teal comment-submit' %>
       </div>
     <% end %>
   </div>
