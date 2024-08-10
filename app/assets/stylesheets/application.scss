@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap";
 @import "font-awesome";
+@import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
 // Your CSS partials
 @import "components/index";
@@ -24,18 +25,21 @@ $background-color: #f4f4f4;
 $post-border-color: #ddd;
 $post-background-color: #fff;
 
-.profile-picture {
-  text-align: center;
-  margin-bottom: 30px;
-}
 
-.profile-img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  border: 3px solid $primary-color;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
+  .profile-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-img, .avatar {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+
 
 .text-center {
   text-align: center;

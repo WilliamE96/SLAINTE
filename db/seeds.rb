@@ -1,5 +1,4 @@
-require "open-uri"
-
+Message.destroy_all
 Match.destroy_all
 Post.destroy_all
 User.destroy_all
@@ -7,12 +6,12 @@ User.destroy_all
 puts "creating 6 users"
 
 users = [
-  { email: 'user1@example.com', password: 'password', password_confirmation: 'password', username: 'Max' },
-  { email: 'user2@example.com', password: 'password', password_confirmation: 'password', username: 'Zoe' },
-  { email: 'user3@example.com', password: 'password', password_confirmation: 'password', username: 'Nik' },
-  { email: 'user4@example.com', password: 'password', password_confirmation: 'password', username: 'Ella' },
-  { email: 'user5@example.com', password: 'password', password_confirmation: 'password', username: 'Ron' },
-  { email: 'user6@example.com', password: 'password', password_confirmation: 'password', username: 'Will' }
+  { email: 'user1@example.com', password: 'password', password_confirmation: 'password', username: 'Max', latitude: 51.5232, longitude: -0.0759 }, # Shoreditch High Street Station
+  { email: 'user2@example.com', password: 'password', password_confirmation: 'password', username: 'Zoe', latitude: 51.5235, longitude: -0.0770 }, # Boxpark Shoreditch
+  { email: 'user3@example.com', password: 'password', password_confirmation: 'password', username: 'Nik', latitude: 51.5198, longitude: -0.0752 }, # Old Spitalfields Market
+  { email: 'user4@example.com', password: 'password', password_confirmation: 'password', username: 'Ella', latitude: 51.5224, longitude: -0.0739 }, # Shoreditch House
+  { email: 'user5@example.com', password: 'password', password_confirmation: 'password', username: 'Ron', latitude: 51.5244, longitude: -0.0781 }, # Ace Hotel Shoreditch
+  { email: 'user6@example.com', password: 'password', password_confirmation: 'password', username: 'Will', latitude: 51.5260, longitude: -0.0834 } # Le Wagon Shoreditch
 ]
 
 puts "created #{users.count} users"
