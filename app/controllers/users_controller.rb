@@ -7,6 +7,12 @@ class UsersController < ApplicationController
 
   def map
     @users = User.all
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def locations
