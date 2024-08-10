@@ -11,26 +11,26 @@
   <div class="post-actions">
     <%# Action Buttons %>
     <div class="action-buttons">
-      <%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-custom-yellow" %>
+      <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom-yellow" %>
       <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-custom-teal" %>
       <%= link_to 'Back', posts_path, class: "btn btn-custom-teal" %>
     </div>
   </div>
 
+  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
   <%# Likes Section %>
-  <div class="likes-section">
-    <div class="like-icon">
-      <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
-      <% if pre_like %>
-        <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-btn" do %>
-          <i class="fa-solid fa-heart"></i>
-        <% end %>
-      <% else %>
-        <%= button_to post_likes_path(@post), method: :post, class: "like-btn" do %>
-          <i class="fa-regular fa-heart"></i>
-        <% end %>
+  <div class="like-section" style="text-align: center;">
+    <% if pre_like %>
+      <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-button liked",
+        style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+        <i class="fa-solid fa-heart" style="color: #ffb400; font-size: 24px;" id="heart-icon"></i>
       <% end %>
-    </div>
+    <% else %>
+      <%= button_to post_likes_path(@post), method: :post, class: "like-button not-liked",
+        style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+        <i class="fa-regular fa-heart" style="color: grey; font-size: 24px;"></i>
+      <% end %>
+    <% end %>
     <div class="like-count">
       <p>
         <%= @post.likes.count %> <%= @post.likes.count == 1 ? 'Like' : 'Likes' %>
