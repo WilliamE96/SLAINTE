@@ -1,19 +1,21 @@
-<h2>Pending Match Requests You Sent</h2>
-<ul>
+<h2 class="text-center my-4">Pending Match Requests You Sent</h2>
+<ul class="list-group mb-5">
   <% @sent_matches.each do |match| %>
-    <li>
-      Match request with <%= match.matched_user.username %> is pending.
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Match request with <strong><%= match.matched_user.username %></strong> is pending.
     </li>
   <% end %>
 </ul>
 
-<h2>Match Requests You Received</h2>
-<ul>
+<h2 class="text-center my-4">Match Requests You Received</h2>
+<ul class="list-group">
   <% @received_matches.each do |match| %>
-    <li>
-      Match request from <%= match.user.username %>
-      <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success" %>
-      <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger" %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>Match request from <strong><%= match.user.username %></strong></span>
+      <div>
+        <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success me-2" %>
+        <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger" %>
+      </div>
     </li>
   <% end %>
 </ul>

@@ -6,3 +6,24 @@
 @import "footer";
 @import "button";
 @import "icon";
+/* app/assets/stylesheets/custom.css */
+// this is for the notification page.
+.list-group-item {
+  border-radius: 10px;
+  background-color: #f8f9fa; /* Light grey background */
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef; /* Slightly darker grey on hover */
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
