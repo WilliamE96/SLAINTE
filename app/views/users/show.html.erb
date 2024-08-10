@@ -4,7 +4,7 @@
 
 <div class="container">
   <div id="background-image">
-    <h1 class="text-primary"><%= @user.username %></h1>
+    <h1 class="username"><%= @user.username %></h1>
     <div class="profile-picture text-center">
       <% if @user.photo.attached? %>
         <%= image_tag @user.photo, alt: @user.username, class: 'profile-img' %>
