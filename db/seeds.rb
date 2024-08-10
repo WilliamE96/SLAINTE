@@ -22,7 +22,7 @@ user_photos = [
   "user3.jpg",
   "user4.jpg",
   "user5.jpg",
-  "user6.jpg",
+  "user6.jpg"
 ]
 
 users.each_with_index do |user, index|
