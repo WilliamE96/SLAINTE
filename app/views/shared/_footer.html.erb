@@ -3,13 +3,9 @@
     <%= link_to posts_path do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
-    <% if current_user && current_user.matches.any? %>
       <%= link_to chats_path do %>
         <i class="fa-solid fa-comment-dots"></i>
       <% end %>
-    <% else %>
-      <a href="#"><i class="fa-solid fa-comment-dots"></i></a>
-    <% end %>
     <%= link_to new_post_path, class: 'highlight-icon' do %>
       <i class="fa-solid fa-circle-plus" id="post-icon"></i>
     <% end %>
@@ -17,10 +13,10 @@
     <%= link_to map_users_path do %>
       <i class="fa-solid fa-location-dot"></i>
     <% end %>
-
+    <!--
     <%= link_to friends_path do %>
       <i class="fa-solid fa-user"></i>
     <% end %>
-
+    -->
   </div>
 </div>
