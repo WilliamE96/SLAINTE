@@ -27,3 +27,15 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
+// this is for the like btn to be on the same line with the rest..
+.post-interactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+// this is for the comment "likes ..." to be verical.
+.post-interactions > * {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
