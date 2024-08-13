@@ -26,21 +26,16 @@ $background-color: #f4f4f4;
 $post-border-color: #ddd;
 $post-background-color: #fff;
 
+.profile-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .profile-picture {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .profile-img, .avatar {
-    display: block;
-    // max-width: 100%;
-    // height: auto;
-    border-radius: 50%;
-  }
-
-
+.profile-img, .avatar {
+  display: block;
+  border-radius: 50%;
+}
 
 .text-center {
   text-align: center;
@@ -52,7 +47,6 @@ $post-background-color: #fff;
 
 .post {
   background-color: #d4edda;
-  // border: 1px solid $post-border-color;
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -61,8 +55,6 @@ $post-background-color: #fff;
     border: 2px solid #422800;
   border-radius: 30px;
   box-shadow: #422800 2px 2px 0 0;
-  // box-shadow: 0 0 10px #38ef7eaa;
-  // transition: transform 0.2s ease-in-out;
 
   &:hover {
     transform: scale(1.02);
