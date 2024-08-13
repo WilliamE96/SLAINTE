@@ -1,0 +1,31 @@
+.no-asterisk abbr[title="required"] {
+  display: none;
+}
+
+.new-post-background {
+  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723553662/allgo-an-app-for-plus-size-people-hIY1r0TUWr4-unsplash_nokms4.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-post-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.new-post-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-custom-yellow {
+  width: 36%;
+}

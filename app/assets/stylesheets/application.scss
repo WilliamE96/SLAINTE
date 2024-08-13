@@ -10,10 +10,11 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+@import "pages/post_index";
 @import "pages/profile";
 @import "components/comment";
 @import 'pages/post_show';
+@import 'pages/post_new';
 @import "components/join";
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
