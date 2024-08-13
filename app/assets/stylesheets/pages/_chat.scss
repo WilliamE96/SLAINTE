@@ -1,0 +1,54 @@
+.chat-container {
+  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558912/ourwhisky-foundation-oN2iSlIZlIk-unsplash_pssp5s.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center content horizontally
+  justify-content: center; // Center content vertically
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+
+  h1 {
+    color: #ffffff; // White text color for contrast
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem; // Larger font size for bold appearance
+    font-weight: bold; // Bold font weight
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); // Black shadow
+  }
+
+  ul {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  li {
+    border-bottom: 1px solid #333; // Darker border color
+    padding: 15px 0; // Increased padding for more emphasis
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: none; // Remove bottom border for the last item
+    }
+
+    a {
+      color: #000; // Black color for links
+      font-weight: bold; // Bold text
+      text-decoration: none; // Remove underline
+    }
+  }
+
+  p {
+    color: #ffffff; // White text color
+    text-align: center;
+    font-size: 1.2rem; // Slightly larger text for emphasis
+    font-weight: bold; // Bold font weight
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); // Black shadow
+  }
+}

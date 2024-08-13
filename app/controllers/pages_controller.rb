@@ -9,6 +9,6 @@ class PagesController < ApplicationController
   end
 
   def chats
-    @friends = current_user.matches.where(status: "accepted")
+    @friends = Match.where(user_id: current_user).or(Match.where(matched_user_id: current_user)).where(status: "accepted")
   end
 end
