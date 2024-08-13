@@ -8,32 +8,157 @@
 @import "icon";
 /* app/assets/stylesheets/custom.css */
 // this is for the notification page.
-.list-group-item {
+
+// .match-requests-sent-container,
+// .match-requests-received-container {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 15px;
+// }
+
+// .match-request-item {
+//   display: flex;
+//   align-items: center;
+//   background-color: #ffffff;
+//   padding: 10px;
+//   border-radius: 10px;
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+//   transition: background-color 0.3s ease;
+// }
+
+// .match-request-item:hover {
+//   background-color: #f9f9f9;
+// }
+
+// .match-request-initials {
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 50%;
+//   background-color: #005F4E;
+//   color: white;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 18px;
+//   font-weight: bold;
+//   margin-right: 15px;
+// }
+
+// .match-request-info {
+//   flex-grow: 1;
+//   font-size: 14px;
+// }
+
+// .match-request-actions {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .btn-success {
+//   background-color: #FFB400;
+//   color: white;
+//   border: none;
+//   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+//   border-radius: 5px;
+//   padding: 5px 10px;
+//   font-size: 14px;
+// }
+
+// .btn-danger {
+//   background-color: #005F4E;
+//   color: white;
+//   border: none;
+//   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+//   border-radius: 5px;
+//   padding: 5px 10px;
+//   font-size: 14px;
+// }
+
+// .post-interactions {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+// }
+
+// .post-interactions > * {
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+// }
+
+
+
+
+// with avatar.
+.match-requests-sent-container,
+.match-requests-received-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.match-request-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
   border-radius: 10px;
-  background-color: #f8f9fa; /* Light grey background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
 
-.list-group-item:hover {
-  background-color: #e9ecef; /* Slightly darker grey on hover */
+.match-request-item:hover {
+  background-color: #f9f9f9;
+}
+
+.match-request-avatar {
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.avatar-img {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover; /* Ensures the image covers the circle without distortion */
+}
+
+.match-request-info {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.match-request-actions {
+  display: flex;
+  align-items: center;
 }
 
 .btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #FFB400;
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
 }
 
 .btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: #005F4E;
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
 }
-// this is for the like btn to be on the same line with the rest..
+
 .post-interactions {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-// this is for the comment "likes ..." to be verical.
+
 .post-interactions > * {
   height: 100%;
   display: flex;

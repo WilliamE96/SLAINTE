@@ -1,21 +1,66 @@
-<h2 class="text-center my-4">Pending Match Requests You Sent</h2>
-<ul class="list-group mb-5">
-  <% @sent_matches.each do |match| %>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Match request with <strong><%= match.matched_user.username %></strong> is pending.
-    </li>
-  <% end %>
-</ul>
+<%# <h2 class="text-center my-4">Pending Match Requests You Sent</h2>
+<div class="match-requests-sent-container">
+  <% @sent_matches.each do |match|
+    <div class="match-request-item">
+      <div class="match-request-initials">
+        <%= match.matched_user.username.split(' ').map { |name| name[0] }.join.upcase
+      </div>
+      <div class="match-request-info">
+        Match request with <strong><%= match.matched_user.username </strong> is pending.
+      </div>
+    </div>
+  <% end
+</div>
 
 <h2 class="text-center my-4">Match Requests You Received</h2>
-<ul class="list-group">
+<div class="match-requests-received-container">
+  <% @received_matches.each do |match|
+    <div class="match-request-item">
+      <div class="match-request-initials">
+        <%= match.user.username.split(' ').map { |name| name[0] }.join.upcase
+      </div>
+      <div class="match-request-info">
+        <span>Match request from <strong><%= match.user.username </strong></span>
+      </div>
+      <div class="match-request-actions">
+        <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success me-2"
+        <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger"
+      </div>
+    </div>
+  <% end
+</div> %>
+<%#  %>
+
+
+
+<h2 class="text-center my-4">Pending Match Requests You Sent</h2>
+<div class="match-requests-sent-container">
+  <% @sent_matches.each do |match| %>
+    <div class="match-request-item">
+      <div class="match-request-avatar">
+        <img src="<%= match.matched_user.photo_url || 'path/to/default_avatar.jpg' %>" alt="User avatar" class="avatar-img">
+      </div>
+      <div class="match-request-info">
+        Match request with <strong><%= match.matched_user.username %></strong> is pending.
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-center my-4">Match Requests You Received</h2>
+<div class="match-requests-received-container">
   <% @received_matches.each do |match| %>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <span>Match request from <strong><%= match.user.username %></strong></span>
-      <div>
+    <div class="match-request-item">
+      <div class="match-request-avatar">
+        <img src="<%= match.user.photo_url || 'path/to/default_avatar.jpg' %>" alt="User avatar" class="avatar-img">
+      </div>
+      <div class="match-request-info">
+        <span>Match request from <strong><%= match.user.username %></strong></span>
+      </div>
+      <div class="match-request-actions">
         <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success me-2" %>
         <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger" %>
       </div>
-    </li>
+    </div>
   <% end %>
-</ul>
+</div>
