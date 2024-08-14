@@ -5,6 +5,8 @@ Message.destroy_all
 Match.destroy_all
 Post.destroy_all
 User.destroy_all
+Like.destroy_all
+Comment.destroy_all
 
 puts "creating 15 users"
 
@@ -70,7 +72,6 @@ post_contents = [
   "Cheers to a great night!",
   "Meeting for drinks, join us!",
   "Making memories!",
-
   "Unwinding with friends!",
   "Great vibes tonight!",
   "Exploring new spots.",
@@ -203,6 +204,154 @@ post_images = [
   'https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558797/abstral-official-fwAT8_KCVQo-unsplash_ebbjkr.jpg'
 ]
 
+
+comments = [
+  "Looks like a fun night!",
+  "Great vibes!",
+  "Enjoy your night!",
+  "That spot looks cool!",
+  "Hope you're having a great time!",
+  "Nice place!",
+  "Wish I was there!",
+  "Have a drink for me!",
+  "Looks like a good time!",
+  "Cheers to a great night!",
+  "Living it up!",
+  "That's the way to spend a night!",
+  "Out and about!",
+  "Enjoy the night!",
+  "Looks like a perfect evening!",
+  "Good times for sure!",
+  "Keep the good vibes going!",
+  "Looks like a blast!",
+  "Where's the invite?",
+  "Nice night out!",
+  "That place looks awesome!",
+  "Looks like you're having fun!",
+  "Great shot!",
+  "Perfect night for it!",
+  "Looks like a great crew!",
+  "Good times!",
+  "Great view!",
+  "Awesome spot!",
+  "Looks like a good crowd!",
+  "Enjoy every moment!",
+  "Wish I could be there!",
+  "Living your best life!",
+  "Night out well spent!",
+  "That's what weekends are for!",
+  "Looks like a great atmosphere!",
+  "Hope you're enjoying!",
+  "Looks like a chill spot!",
+  "Perfect way to unwind!",
+  "Night to remember!",
+  "Looks like a lot of fun!",
+  "Out and about!",
+  "Great location!",
+  "Where is that?",
+  "Perfect night out!",
+  "Hope you're having a blast!",
+  "Good choice of venue!",
+  "Enjoy the night!",
+  "Cheers to the weekend!",
+  "Nice spot!",
+  "Out and about!",
+  "Looks like a great night!",
+  "Awesome night out!",
+  "Making the most of it!",
+  "That place looks fun!",
+  "Good times ahead!",
+  "Hope you're enjoying!",
+  "Looks like a lively spot!",
+  "Great night!",
+  "Perfect way to spend an evening!",
+  "Night out vibes!",
+  "Looks like a great night out!",
+  "Awesome venue!",
+  "Good times!",
+  "That spot looks great!",
+  "Where's that?",
+  "Making the most of the night!",
+  "Enjoying the evening!",
+  "Out on the town!",
+  "Looks like a cool place!",
+  "Hope you're having fun!",
+  "Great night out!",
+  "Perfect way to start the weekend!",
+  "Looks like a great crowd!",
+  "Living it up!",
+  "Hope the night is treating you well!",
+  "Enjoy the night out!",
+  "Cheers to a fun night!",
+  "That's the way to do it!",
+  "Out with friends!",
+  "Looks like a good time!",
+  "Perfect night out!",
+  "Hope you're having a good one!",
+  "Out on the town!",
+  "Great spot!",
+  "Nice night for it!",
+  "Hope you're enjoying the night!",
+  "Great atmosphere!",
+  "Night out essentials!",
+  "Where are you?",
+  "Enjoy the night!",
+  "Living the good life!",
+  "Great vibes!",
+  "Hope you're having a blast!",
+  "Good choice of place!",
+  "Night out!",
+  "Looks like a great spot!",
+  "Enjoying the night!",
+  "Out and about!",
+  "Good times rolling!",
+  "Hope you're having a good time!",
+  "Nice night out!",
+  "Out and about!",
+  "Where is that?",
+  "Looks like a great night out!",
+  "Cheers to the weekend!",
+  "Out for the night!",
+  "Enjoying the night out!",
+  "Perfect spot!",
+  "Hope you're having fun!",
+  "That looks like a good time!",
+  "Night well spent!",
+  "Making memories!",
+  "Out with the crew!",
+  "Great location!",
+  "Hope you're enjoying!",
+  "Cheers to a good night!",
+  "Good choice!",
+  "That place looks cool!",
+  "Enjoy the night!",
+  "Out on the town!",
+  "Looks like a perfect night!",
+  "Night out vibes!",
+  "Where are you headed?",
+  "That spot looks fun!",
+  "Out for the night!",
+  "Living it up!",
+  "Cheers to a great night!",
+  "Making the most of it!",
+  "Hope the night is treating you well!",
+  "Out with friends!",
+  "Looks like a fun time!",
+  "Night out essentials!",
+  "Great night ahead!",
+  "Good vibes only!",
+  "Out and about!",
+  "Making the most of the night!",
+  "That spot looks awesome!",
+  "Hope you're having a blast!",
+  "Great night out!",
+  "Enjoy the evening!",
+  "Looks like a good time!",
+  "Night to remember!",
+  "Out on the town!",
+  "Living your best life!",
+  "Where is that place?"
+]
 # Shuffle the post_images array to ensure randomness
 shuffled_images = post_images.shuffle
 
@@ -227,9 +376,27 @@ shuffled_images.each_with_index do |image, index|
   user_post_counts[user.id] += 1
 
   puts "Created post #{index + 1} for user #{user.username}: #{post.content}"
+
+  # Add random likes to the post
+  rand(5..30).times do
+    liker = User.all.sample # Randomly select a user to like the post
+    post.likes.create!(user: liker)
+  end
+
+  puts "Added likes to post #{post.id}: #{post.likes.count} likes"
+
+    # Add random comments to the post
+  comments_for_post = comments.sample(rand(0..5)) # Randomly select 0 to 5 comments
+  comments_for_post.each do |comment_content|
+    commenter = User.all.sample # Randomly select a user to comment
+    post.comments.create!(user: commenter, content: comment_content)
+  end
+
+  puts "Added comments to post #{post.id}: #{post.comments.count} comments"
 end
 
 puts "Created #{Post.count} posts."
+puts "Created #{Like.count} likes."
 
 # Create 1 match
 Match.create(user_id: User.first.id, matched_user_id: User.second.id, status: 'pending', created_at: Time.now, updated_at: Time.now)
