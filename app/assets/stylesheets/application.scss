@@ -10,6 +10,7 @@
 
 // Your CSS partials
 @import "components/index";
+@import "pages/chat";
 @import "pages/post_index";
 @import "pages/profile";
 @import "components/comment";
@@ -18,8 +19,7 @@
 @import "components/join";
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
-// this is some extra design for the profile-page-show.
-// the code starts from here until.
+// This is some extra design for the profile-page-show. The code starts from here.
 $primary-color: #cbced1;
 $secondary-color: #2ecc7000;
 $background-color: #f4f4f4;
