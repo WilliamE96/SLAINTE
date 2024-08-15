@@ -96,3 +96,14 @@
   font-size: 14px;
   cursor: pointer;
 }
+.post-interactions {
+  display: flex;
+  align-items: center; /* This ensures that all items are centered vertically */
+  justify-content: space-around;
+}
+
+.post-interactions > * {
+  height: 100%; /* Make sure all direct children have the same height */
+  display: flex;
+  align-items: center; /* Ensure content within children is also centered vertically */
+}
