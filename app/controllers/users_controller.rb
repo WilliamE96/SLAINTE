@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   end
 
   def map
-    @users = User.all
-    @markers = @users.map do |user|
+    posts = Post.all
+    @markers = posts.map do |post|
       {
-        lat: user.latitude,
-        lng: user.longitude
+        id: post.id,
+        lat: post.latitude,
+        lng: post.longitude
       }
     end
   end
