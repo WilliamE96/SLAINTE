@@ -52,6 +52,16 @@ class MatchesController < ApplicationController
     redirect_to matches_path
   end
 
+  def cancel
+    @match = current_user.sent_matches.find(params[:id])
+    if @match.destroy
+      flash[:notice] = "Match request canceled."
+    else
+      flash[:alert] = "Failed to cancel the match request."
+    end
+    redirect_to matches_path
+  end
+
   def show
     @match = Match.find(params[:id])
     @message = Message.new
