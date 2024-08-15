@@ -1,3 +1,4 @@
+// Chat Index Page
 .chat-container {
   background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558912/ourwhisky-foundation-oN2iSlIZlIk-unsplash_pssp5s.jpg') no-repeat center center;
   background-size: cover;
@@ -50,4 +51,42 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     margin: 0;
   }
+}
+
+// Chat Show Page
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+div.container.chat {
+  position: fixed;
+  bottom: 10px; /* Distance from the bottom of the viewport */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 10px); /* Adjust height considering the bottom margin */
+  background-image: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723748251/development/job2o1u4nzenso5nnc1mceuwavr8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.messages > div {
+  background-color: white; /* White background for each message */
+  padding: 10px; /* Padding inside each message */
+  margin-bottom: 10px; /* Space between messages */
+  border-radius: 8px; /* Optional: Rounded corners for each message */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for better separation */
+}
+
+form {
+  margin-top: auto;
 }
