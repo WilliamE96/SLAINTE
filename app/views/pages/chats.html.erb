@@ -6,7 +6,7 @@
       <% @friends.each do |match| %>
         <% if match.messages.size > 0 %>
           <li>
-            <%= link_to (match.user == current_user ? match.matched_user.username : match.user.username), match_path(match) %>
+            <%= link_to "Friend: #{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
             <% if match.messages.last.user == current_user %>
               <p>You: <%= match.messages.last.content %></p>
             <% else %>
@@ -14,8 +14,10 @@
             <% end %>
           </li>
         <% else %>
-            <%= link_to (match.user == current_user ? match.matched_user.username : match.user.username), match_path(match) %>
-            <%= "No messages yet."%>
+          <li>
+            <%= link_to "Friend: #{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
+            <p>No messages yet.</p>
+          </li>
         <% end %>
       <% end %>
     </ul>
@@ -23,3 +25,4 @@
     <p>Currently you don't have any chats</p>
   <% end %>
 </div>
+
