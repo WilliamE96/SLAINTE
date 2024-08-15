@@ -8,107 +8,21 @@
 @import "icon";
 /* app/assets/stylesheets/custom.css */
 // this is for the notification page.
-
-// .match-requests-sent-container,
-// .match-requests-received-container {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 15px;
-// }
-
-// .match-request-item {
-//   display: flex;
-//   align-items: center;
-//   background-color: #ffffff;
-//   padding: 10px;
-//   border-radius: 10px;
-//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-//   transition: background-color 0.3s ease;
-// }
-
-// .match-request-item:hover {
-//   background-color: #f9f9f9;
-// }
-
-// .match-request-initials {
-//   width: 50px;
-//   height: 50px;
-//   border-radius: 50%;
-//   background-color: #005F4E;
-//   color: white;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 18px;
-//   font-weight: bold;
-//   margin-right: 15px;
-// }
-
-// .match-request-info {
-//   flex-grow: 1;
-//   font-size: 14px;
-// }
-
-// .match-request-actions {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .btn-success {
-//   background-color: #FFB400;
-//   color: white;
-//   border: none;
-//   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-//   border-radius: 5px;
-//   padding: 5px 10px;
-//   font-size: 14px;
-// }
-
-// .btn-danger {
-//   background-color: #005F4E;
-//   color: white;
-//   border: none;
-//   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-//   border-radius: 5px;
-//   padding: 5px 10px;
-//   font-size: 14px;
-// }
-
-// .post-interactions {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-// }
-
-// .post-interactions > * {
-//   height: 100%;
-//   display: flex;
-//   align-items: center;
-// }
-
-
-
-
-// with avatar.
 .match-requests-sent-container,
 .match-requests-received-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin: 0 10px;
 }
 
 .match-request-item {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.match-request-item:hover {
-  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .match-request-avatar {
@@ -116,51 +30,80 @@
   margin-right: 15px;
 }
 
-.avatar-img {
-  width: 50px; /* Adjust size as needed */
+.match-request-initials {
+  width: 50px;
   height: 50px;
-  border-radius: 50%; /* Circular image */
-  object-fit: cover; /* Ensures the image covers the circle without distortion */
+  border-radius: 50%;
+  background-color: #72a69c; /* Background color for the initials circle */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.match-request-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .match-request-info {
-  flex-grow: 1;
   font-size: 14px;
+  color: #333;
+}
+
+.match-request-info span {
+  display: block;
+  color: #777;
+  margin-top: 2px;
 }
 
 .match-request-actions {
+  margin-top: 8px;
   display: flex;
-  align-items: center;
+  gap: 8px;
 }
 
 .btn-success {
-  background-color: #FFB400;
+  background-color: #28a745;
   color: white;
   border: none;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 6px;
+  padding: 6px 10px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .btn-danger {
-  background-color: #005F4E;
+  background-color: #dc3545;
   color: white;
   border: none;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 6px;
+  padding: 6px 10px;
   font-size: 14px;
+  cursor: pointer;
 }
 
+.btn-warning {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
 .post-interactions {
   display: flex;
-  align-items: center;
+  align-items: center; /* This ensures that all items are centered vertically */
   justify-content: space-around;
 }
 
 .post-interactions > * {
-  height: 100%;
+  height: 100%; /* Make sure all direct children have the same height */
   display: flex;
-  align-items: center;
+  align-items: center; /* Ensure content within children is also centered vertically */
 }
