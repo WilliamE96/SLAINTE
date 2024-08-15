@@ -3,12 +3,12 @@
     <h1>Create a Post</h1>
 
     <%= simple_form_for @post, url: posts_path, html: { multipart: true } do |f| %>
-      <%= f.input :content, label: "Create a post!" %>
+      <%= f.input :content, label: "Share Your Sláinte Story!" %>
       <%= f.input :photo, as: :file %>
 
       <div class="new-post-buttons">
         <%= link_to 'Back', posts_path, class: 'btn btn-custom-yellow' %>
-        <%= f.submit 'Create Post', class: 'btn btn-custom-teal' %>
+        <%= f.submit 'Create Post!', class: 'btn btn-custom-teal' %>
       </div>
     <% end %>
   </div>
