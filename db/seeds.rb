@@ -10,7 +10,6 @@ Comment.destroy_all
 
 puts "creating 15 users"
 
-# User data
 users_data = [
   { email: 'partylover1@example.com', password: 'password', password_confirmation: 'password', username: 'SkyWatcher' },
   { email: 'drinkbuddy2@example.com', password: 'password', password_confirmation: 'password', username: 'OceanBreeze' },
@@ -29,7 +28,6 @@ users_data = [
   { email: 'drinksession15@example.com', password: 'password', password_confirmation: 'password', username: 'ChasingDreams' }
 ]
 
-# User profile photos
 user_photos = [
   "https://res.cloudinary.com/dah2rdyj2/image/upload/v1723560393/austin-distel-qgdJX9mvMJI-unsplash_ycvrrs.jpg",
   "https://res.cloudinary.com/dah2rdyj2/image/upload/v1723560391/thierry-lemaitre-HRNDJkOGZ9Q-unsplash_qaxgow.jpg",
@@ -204,6 +202,79 @@ post_images = [
   'https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558797/abstral-official-fwAT8_KCVQo-unsplash_ebbjkr.jpg'
 ]
 
+shuffled_coordinates = [
+  { latitude: 51.5102, longitude: -0.1341 }, # Soho
+  { latitude: 51.5136, longitude: -0.1357 }, # Soho Square
+  { latitude: 51.5145, longitude: -0.1400 }, # Carnaby Street
+  { latitude: 51.5120, longitude: -0.1317 }, # Leicester Square
+  { latitude: 51.5175, longitude: -0.1062 }, # Shoreditch
+  { latitude: 51.5194, longitude: -0.0753 }, # Spitalfields
+  { latitude: 51.5213, longitude: -0.0794 }, # Brick Lane
+  { latitude: 51.5205, longitude: -0.0786 }, # Old Truman Brewery
+  { latitude: 51.5207, longitude: -0.0842 }, # Hoxton
+  { latitude: 51.5215, longitude: -0.0872 }, # Shoreditch High Street
+  { latitude: 51.5138, longitude: -0.0982 }, # The Shard
+  { latitude: 51.5085, longitude: -0.1257 }, # Covent Garden
+  { latitude: 51.5110, longitude: -0.1222 }, # Trafalgar Square
+  { latitude: 51.5095, longitude: -0.1271 }, # Leicester Square
+  { latitude: 51.5152, longitude: -0.1419 }, # Soho House
+  { latitude: 51.5142, longitude: -0.1435 }, # Dean Street
+  { latitude: 51.5159, longitude: -0.1433 }, # Wardour Street
+  { latitude: 51.5169, longitude: -0.1421 }, # Oxford Street
+  { latitude: 51.5132, longitude: -0.1372 }, # Carnaby Street
+  { latitude: 51.5068, longitude: -0.1269 }, # Waterloo Bridge
+  { latitude: 51.5106, longitude: -0.1186 }, # The Strand
+  { latitude: 51.5174, longitude: -0.1020 }, # Liverpool Street
+  { latitude: 51.5185, longitude: -0.0814 }, # Spitalfields Market
+  { latitude: 51.5228, longitude: -0.0815 }, # Columbia Road
+  { latitude: 51.5239, longitude: -0.0781 }, # Redchurch Street
+  { latitude: 51.5299, longitude: -0.1254 }, # Kings Cross
+  { latitude: 51.5343, longitude: -0.1252 }, # Camden Town
+  { latitude: 51.5401, longitude: -0.1447 }, # Camden High Street
+  { latitude: 51.5410, longitude: -0.1469 }, # Chalk Farm Road
+  { latitude: 51.5356, longitude: -0.1421 }, # Kentish Town
+  { latitude: 51.5456, longitude: -0.1411 }, # Hampstead Heath
+  { latitude: 51.5105, longitude: -0.1167 }, # Charing Cross
+  { latitude: 51.5206, longitude: -0.0935 }, # Farringdon
+  { latitude: 51.5219, longitude: -0.0987 }, # Clerkenwell
+  { latitude: 51.5124, longitude: -0.0976 }, # Borough Market
+  { latitude: 51.5118, longitude: -0.0832 }, # Monument
+  { latitude: 51.5141, longitude: -0.0749 }, # Whitechapel
+  { latitude: 51.5144, longitude: -0.0635 }, # Limehouse
+  { latitude: 51.5024, longitude: -0.0865 }, # London Bridge
+  { latitude: 51.5070, longitude: -0.0877 }, # Tower Bridge
+  { latitude: 51.5101, longitude: -0.0749 }, # Tower Hill
+  { latitude: 51.5054, longitude: -0.0753 }, # St. Katharine Docks
+  { latitude: 51.5033, longitude: -0.1008 }, # Tate Modern
+  { latitude: 51.5050, longitude: -0.0943 }, # Blackfriars
+  { latitude: 51.5096, longitude: -0.1340 }, # Mayfair
+  { latitude: 51.5089, longitude: -0.1425 }, # Regent Street
+  { latitude: 51.5112, longitude: -0.1419 }, # Piccadilly Circus
+  { latitude: 51.5154, longitude: -0.1270 }, # Fitzrovia
+  { latitude: 51.5202, longitude: -0.1275 }, # Goodge Street
+  { latitude: 51.5283, longitude: -0.1418 }, # Regent's Park
+  { latitude: 51.5234, longitude: -0.1586 }, # Marylebone
+  { latitude: 51.5255, longitude: -0.1620 }, # Baker Street
+  { latitude: 51.5163, longitude: -0.1291 }, # Bloomsbury
+  { latitude: 51.5206, longitude: -0.1246 }, # Russell Square
+  { latitude: 51.5254, longitude: -0.1094 }, # Angel
+  { latitude: 51.5265, longitude: -0.1106 }, # Upper Street
+  { latitude: 51.5294, longitude: -0.1081 }, # Islington Green
+  { latitude: 51.5283, longitude: -0.1062 }, # Essex Road
+  { latitude: 51.5314, longitude: -0.1025 }, # Highbury
+  { latitude: 51.5324, longitude: -0.1015 }, # Highbury Fields
+  { latitude: 51.5351, longitude: -0.1002 }, # Arsenal
+  { latitude: 51.5311, longitude: -0.0916 }, # Canonbury
+  { latitude: 51.5195, longitude: -0.1460 }, # Marble Arch
+  { latitude: 51.5099, longitude: -0.1486 }, # Hyde Park Corner
+  { latitude: 51.5083, longitude: -0.1431 }, # Green Park
+  { latitude: 51.5078, longitude: -0.1500 }, # Buckingham Palace
+  { latitude: 51.5045, longitude: -0.1617 }, # Victoria
+  { latitude: 51.4934, longitude: -0.1721 }, # Sloane Square
+  { latitude: 51.4940, longitude: -0.1696 }, # Knightsbridge
+  { latitude: 51.4975, longitude: -0.1745 }, # Chelsea
+  { latitude: 51.4998, longitude: -0.1744 }, # South Kensington
+].shuffle
 
 comments = [
   "Looks like a fun night!",
@@ -352,43 +423,36 @@ comments = [
   "Living your best life!",
   "Where is that place?"
 ]
-# Shuffle the post_images array to ensure randomness
+
 shuffled_images = post_images.shuffle
 
 user_post_counts = Hash.new(0)
 
-# Distribute images across users
 shuffled_images.each_with_index do |image, index|
-  # Find the user for the current image
   user = users[index % users.length]
 
-  # Skip if user already has 5 posts
   next if user_post_counts[user.id] >= 5
 
-  # Select a random post content
   post_content = post_contents.sample
+  coordinates = shuffled_coordinates[index]
 
-  # Create the post and attach the image
-  post = user.posts.create!(content: post_content)
+  post = user.posts.create!(content: post_content, latitude: coordinates[:latitude], longitude: coordinates[:longitude])
   post.photo.attach(io: URI.open(image), filename: File.basename(image), content_type: 'image/jpg')
 
-  # Increment the user's post count
   user_post_counts[user.id] += 1
 
-  puts "Created post #{index + 1} for user #{user.username}: #{post.content}"
+  puts "Created post #{index + 1} for user #{user.username}: #{post.content} at #{coordinates[:latitude]}, #{coordinates[:longitude]}"
 
-  # Add random likes to the post
   rand(5..30).times do
-    liker = User.all.sample # Randomly select a user to like the post
+    liker = User.all.sample
     post.likes.create!(user: liker)
   end
 
   puts "Added likes to post #{post.id}: #{post.likes.count} likes"
 
-    # Add random comments to the post
-  comments_for_post = comments.sample(rand(0..5)) # Randomly select 0 to 5 comments
+  comments_for_post = comments.sample(rand(0..5))
   comments_for_post.each do |comment_content|
-    commenter = User.all.sample # Randomly select a user to comment
+    commenter = User.all.sample
     post.comments.create!(user: commenter, content: comment_content)
   end
 
@@ -398,7 +462,6 @@ end
 puts "Created #{Post.count} posts."
 puts "Created #{Like.count} likes."
 
-# Create 1 match
 Match.create(user_id: User.first.id, matched_user_id: User.second.id, status: 'pending', created_at: Time.now, updated_at: Time.now)
 
 puts "created #{Match.count} matches"

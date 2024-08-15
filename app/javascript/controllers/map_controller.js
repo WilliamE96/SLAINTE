@@ -21,13 +21,31 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
+  // #addMarkersToMap() {
+  //   this.markersValue.forEach((marker) => {
+  //     new mapboxgl.Marker()
+  //       .setLngLat([ marker.lng, marker.lat ])
+  //       .addTo(this.map)
+  //   })
+  // }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
-    })
-  }
+      const el = document.createElement('a');
+      el.href = `${window.location.origin}/posts/${marker.id}`;
+      el.target = '_blank';
+
+      el.className = 'marker';
+      el.style.width = '30px';
+      el.style.height = '30px';
+      el.style.backgroundImage = 'url(https://cdn-icons-png.flaticon.com/512/3362/3362651.png)';
+      el.style.backgroundSize = 'cover';
+
+      // Create the marker using the custom element
+      new mapboxgl.Marker(el)
+        .setLngLat([marker.lng, marker.lat])
+        .addTo(this.map);
+    });
+}
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
@@ -35,3 +53,5 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 }
+
+// orange-circle-1462825_1280.png
