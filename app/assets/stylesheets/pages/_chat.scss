@@ -3,20 +3,20 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center; // Center content horizontally
-  justify-content: center; // Center content vertically
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
 
   h1 {
-    color: #ffffff; // White text color for contrast
+    color: #ffffff;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 2rem; // Larger font size for bold appearance
-    font-weight: bold; // Bold font weight
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); // Black shadow
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 
   ul {
@@ -27,28 +27,27 @@
   }
 
   li {
-    border-bottom: 1px solid #333; // Darker border color
-    padding: 15px 0; // Increased padding for more emphasis
+    padding: 15px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+  }
 
-    &:last-child {
-      border-bottom: none; // Remove bottom border for the last item
-    }
-
-    a {
-      color: #000; // Black color for links
-      font-weight: bold; // Bold text
-      text-decoration: none; // Remove underline
-    }
+  a {
+    color: #005F4E;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin-bottom: 5px;
+    text-transform: uppercase;
   }
 
   p {
-    color: #ffffff; // White text color
-    text-align: center;
-    font-size: 1.2rem; // Slightly larger text for emphasis
-    font-weight: bold; // Bold font weight
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); // Black shadow
+    color: #FFB400;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    margin: 0;
   }
 }
