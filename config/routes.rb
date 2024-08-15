@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     member do
       patch :accept
       patch :reject
+      delete :cancel # this line is to handle match cancellation
     end
   end
 
