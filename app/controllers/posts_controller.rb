@@ -3,10 +3,10 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :destroy]
 
   def index
-    @posts = Post.all.includes(:user, :likes)
+    @posts = Post.order(created_at: :desc).includes(:user, :likes)
     @user = current_user
   end
-
+  
   def create
     @post = Post.new(post_params)
     @post.user = current_user
