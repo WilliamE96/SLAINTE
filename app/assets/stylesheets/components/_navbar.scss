@@ -1,23 +1,25 @@
 .navbar-lewagon {
   background: #005f4e;
   border-bottom: solid;
-  position: fixed; /* Fixes the navbar at the top of the viewport */
-  top: 0;          /* Aligns the navbar to the top of the viewport */
-  width: 100%;     /* Ensures the navbar spans the full width of the viewport */
-  z-index: 1000;   /* Makes sure the navbar stays on top of other content */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-/* Add padding to the top of the body or main content to prevent it from hiding behind the fixed navbar */
 body {
-  padding-top: 60px; /* Adjust this value based on the height of your navbar */
+  padding-top: 60px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#title-text-container {
+  flex: 1;
+  text-align: center;
 }
 
 .title-text {
@@ -26,10 +28,7 @@ body {
   color: #ffb400;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow:
-      1px 1px 0 #2e2e2e,
-      2px 2px 0 #2e2e2e,
-      3px 3px 0 #2e2e2e;
+  text-shadow: 1px 1px 0 #2e2e2e, 2px 2px 0 #2e2e2e, 3px 3px 0 #2e2e2e;
 }
 
 .header-link {
@@ -37,22 +36,5 @@ body {
 }
 
 .bell {
-  position: relative;
-  display: inline-block;
-  -webkit-text-stroke-width: 0.5px;
   color: #ffb400;
-  -webkit-text-stroke-color: #ffb400;
-}
-
-.bell .badge {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  padding: 5px 7px;
-  border-radius: 50%;
-  background-color: red;
-  color: white;
-  font-size: 6px;
-  font-weight: bold;
-  -webkit-text-stroke-color: rgba(0, 0, 0, 0);
 }

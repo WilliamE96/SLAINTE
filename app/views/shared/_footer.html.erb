@@ -4,23 +4,30 @@
       <i class="fa-solid fa-house"></i>
     <% end %>
 
-    <%= link_to map_users_path do %>
-      <i class="fa-solid fa-location-dot"></i>
+    <%= link_to chats_path do %>
+      <i class="fa-solid fa-comment-dots"></i>
     <% end %>
 
     <%= link_to new_post_path, class: 'highlight-icon' do %>
       <i class="fa-solid fa-circle-plus" id="post-icon"></i>
     <% end %>
 
-    <%= link_to chats_path do %>
-      <i class="fa-solid fa-comment-dots"></i>
+    <%= link_to map_users_path do %>
+      <i class="fa-solid fa-location-dot"></i>
     <% end %>
-
     <!--
     <%= link_to friends_path do %>
       <i class="fa-solid fa-user"></i>
     <% end %>
     -->
+
+    <%= link_to user_path(current_user) do %>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
+      <% else %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
+      <% end %>
+    <% end %>
 
   </div>
 </div>
