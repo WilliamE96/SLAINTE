@@ -15,9 +15,9 @@
 
 .footer-links {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between; /* Distribute space evenly between icons */
+  width: 100%; /* Full width of the footer */
+  max-width: 500px; /* Optional: set a max-width to control the size */
   position: relative;
 }
 
@@ -33,7 +33,7 @@
 
 .highlight-icon {
   position: absolute;
-  top: -52px;
+  top: -35px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 70px;
