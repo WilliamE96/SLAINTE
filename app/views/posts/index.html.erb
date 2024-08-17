@@ -33,10 +33,9 @@
               <% end %>
             <% else %>
               <%= button_to post_likes_path(post), method: :post, class: "like-button not-liked",
-                style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 28px; color: black;" do %>
-                  <i class="fa-regular fa-heart" style="color: black;"></i>
+              style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+                <i class="fa-regular fa-heart" style="color: grey; font-size: 24px;"></i>
               <% end %>
-
             <% end %>
           </div>
 
