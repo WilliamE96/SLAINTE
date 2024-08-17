@@ -8,6 +8,20 @@
 @import "icon";
 /* app/assets/stylesheets/custom.css */
 // this is for the notification page.
+
+
+
+/* Apply the background image to the entire page */
+body {
+  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723900221/development/0xq4hhky0053945yqjcgmvpdyp2k.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Optional: Choose a readable font */
+}
+
+/* Container Styles */
 .match-requests-sent-container,
 .match-requests-received-container {
   display: flex;
@@ -16,15 +30,17 @@
   margin: 0 10px;
 }
 
+/* Match Request Item Styles */
 .match-request-item {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
   padding: 12px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Avatar Styles */
 .match-request-avatar {
   flex-shrink: 0;
   margin-right: 15px;
@@ -43,6 +59,7 @@
   font-weight: bold;
 }
 
+/* Details Styles */
 .match-request-details {
   flex-grow: 1;
   display: flex;
@@ -61,12 +78,14 @@
   margin-top: 2px;
 }
 
+/* Actions Styles */
 .match-request-actions {
   margin-top: 8px;
   display: flex;
   gap: 8px;
 }
 
+/* Button Styles */
 .btn-success {
   background-color: #28a745;
   color: white;
@@ -96,13 +115,20 @@
   font-size: 14px;
   cursor: pointer;
 }
-.post-interactions {
-  display: flex;
-  align-items: center; /* This ensures that all items are centered vertically */
-  justify-content: space-around;
+
+.btn-success:hover {
+  background-color: #218838;
 }
 
-.post-interactions > * {
-  display: flex;
-  align-items: center; /* Ensure content within children is also centered vertically */
+
+h2 {
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.match-requests-sent-container,
+.match-requests-received-container {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
 }
