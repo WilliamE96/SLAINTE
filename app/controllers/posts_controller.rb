@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.latitude = 51.5318
+    @post.longitude = -0.0767
     @post.user = current_user
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
