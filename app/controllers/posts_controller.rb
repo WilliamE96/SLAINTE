@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.order(created_at: :desc).includes(:user, :likes)
     @user = current_user
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
