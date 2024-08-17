@@ -103,7 +103,6 @@
 }
 
 .post-interactions > * {
-  height: 100%; /* Make sure all direct children have the same height */
   display: flex;
   align-items: center; /* Ensure content within children is also centered vertically */
 }
