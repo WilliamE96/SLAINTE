@@ -58,23 +58,22 @@
 }
 
 // Chat Show Page
-html, body {
-  margin: 0;
-  height: 100%;
-}
-
 div.container.chat {
   position: fixed;
-  bottom: 10px;
-  left: 0;
+  bottom: 60px;
   width: 100%;
-  height: calc(100vh - 10px);
+  height: calc(100vh - 60px);
   background-image: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723748251/development/job2o1u4nzenso5nnc1mceuwavr8.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
+    h1, .h1 {
+      color: #ffffff;
+    }
+}
+
+.mb-3 {
+  margin-bottom: 3rem !important;
 }
 
 .messages {
@@ -88,7 +87,7 @@ div.container.chat {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 form {
