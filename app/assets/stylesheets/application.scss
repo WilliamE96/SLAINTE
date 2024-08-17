@@ -52,9 +52,13 @@ $post-background-color: #fff;
   margin-bottom: 20px;
   border-style: solid;
   border-color: #2e2e2e;
-    border: 2px solid #422800;
+    border: 2px solid #e3e1de;
+    // border: 2px solid #422800;
+
   border-radius: 30px;
   box-shadow: #422800 2px 2px 0 0;
+  // box-shadow: #807e7c 2px 2px 1px 1px;
+
 
   &:hover {
     transform: scale(1.02);
@@ -96,10 +100,8 @@ $post-background-color: #fff;
 
 @media (max-width: 768px) {
   .container {
-    padding: 10px;
     background-color:#f4e1d2;
-    padding-bottom: 80px;
-    padding-top: 30px;
+    padding-top: 78px;
   }
 
   .profile-img {

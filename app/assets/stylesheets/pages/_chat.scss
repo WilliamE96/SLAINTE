@@ -1,6 +1,6 @@
 // Chat Index Page
 .chat-container {
-  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558912/ourwhisky-foundation-oN2iSlIZlIk-unsplash_pssp5s.jpg') no-repeat center center;
+  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723286711/pexels-cottonbro-9419382_rfowhj.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -45,11 +45,15 @@
   }
 
   p {
+    background-color: #2E2E2E;
     color: #FFB400;
+    padding: 10px;
+    border-radius: 8px;
     font-size: 1.2rem;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     margin: 0;
+    text-align: center;
   }
 }
 
@@ -61,10 +65,10 @@ html, body {
 
 div.container.chat {
   position: fixed;
-  bottom: 10px; /* Distance from the bottom of the viewport */
+  bottom: 10px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 10px); /* Adjust height considering the bottom margin */
+  height: calc(100vh - 10px);
   background-image: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723748251/development/job2o1u4nzenso5nnc1mceuwavr8.jpg');
   background-size: cover;
   background-position: center;
@@ -80,11 +84,11 @@ div.container.chat {
 }
 
 .messages > div {
-  background-color: white; /* White background for each message */
-  padding: 10px; /* Padding inside each message */
-  margin-bottom: 10px; /* Space between messages */
-  border-radius: 8px; /* Optional: Rounded corners for each message */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for better separation */
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
 form {
