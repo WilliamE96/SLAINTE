@@ -1,51 +1,22 @@
-<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex justify-content-between">
-  <% if user_signed_in? %>
-    <!--
-    <%= link_to user_path(current_user) do %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
-      <% else %>
-        <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
-      <% end %>
-    <% end %>
-    -->
-  <% end %>
-  <div id="title-text-container">
-    <h1 class="title-text mb-0">
-        <strong>Sláinte</strong>
-    </h1>
-  </div>
+<nav class="navbar">
+  <div class="navbar-content">
+    <div id="title-text-container" class="mx-auto">
+      <h1 class="title-text mb-0">
+          <strong>Sláinte</strong>
+      </h1>
+    </div>
 
     <div class="header-link">
       <%= link_to matches_path do %>
         <i class="bell fa-solid fa-bell fa-xl me-2" style="color: #ffb400; position: relative;">
           <% if user_signed_in? %>
             <% pending_matches_count = current_user.received_matches.where(status: :pending).count %>
-              <% if pending_matches_count > 0 %>
-                <span class="badge"><%= pending_matches_count %></span>
+            <% if pending_matches_count > 0 %>
+              <span class="badge"><%= pending_matches_count %></span>
             <% end %>
           <% end %>
-          </i>
+        </i>
       <% end %>
     </div>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", posts_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "#{current_user.username}", user_path(current_user), class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
   </div>
 </nav>
