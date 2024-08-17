@@ -8,6 +8,29 @@
   margin-top: 1rem;
 }
 
+.like-button i {
+  font-size: 28px;
+  color: black;  /* Set the color to black for the unliked state */
+}
+
+.liked i {
+  color: #ffb400;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.like-button.not-liked i {
+  font-size: 28px;
+  color: black; /* Ensure the unliked icon is black */
+}
+
+.like-button.liked i {
+  color: #ffb400; /* Liked state color */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black; /* Outline for the liked state */
+}
+
+
 .btn-custom {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
