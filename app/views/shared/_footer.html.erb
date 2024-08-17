@@ -21,10 +21,16 @@
     <% end %>
     -->
 
-    <%= link_to user_path(current_user) do %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
-      <% else %>
+    <% if current_user %>
+      <%= link_to user_path(current_user) do %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar ms-2", alt: "dropdown menu" %>
+        <% else %>
+          <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
         <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "dropdown menu" %>
       <% end %>
     <% end %>
