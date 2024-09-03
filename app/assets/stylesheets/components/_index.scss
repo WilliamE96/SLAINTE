@@ -13,12 +13,14 @@
 
 /* Apply the background image to the entire page */
 body {
-  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723900221/development/0xq4hhky0053945yqjcgmvpdyp2k.jpg') no-repeat center center fixed;
+  // background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723900221/development/0xq4hhky0053945yqjcgmvpdyp2k.jpg') no-repeat center center fixed;
+  background-color: #f4e1d2;
   background-size: cover;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif; /* Optional: Choose a readable font */
+  padding-bottom: 70px;
 }
 
 /* Container Styles */
@@ -28,16 +30,55 @@ body {
   flex-direction: column;
   gap: 15px;
   margin: 0 10px;
+  padding: 15px; /* Add padding to create space between the border and the content */
+  box-sizing: border-box;
 }
 
+.match-requests-sent-container {
+  border: 3px solid;
+  width: 90% !important;
+  background-color: #72a69c;
+  border-radius: 20px;
+}
+
+.match-requests-received-container {
+  border: 3px solid;
+  width: 90% !important;
+  border-radius: 20px;
+  background-color: #72a69c;
+}
+
+.title-for-requests {
+  text-align: center;
+  margin: 4px;
+  text-shadow: 1px 1px 0 #2e2e2e, 2px 2px 0 #2e2e2e, 3px 3px 0 #2e2e2e;
+  font-family: 'Georgia', serif; /* Example of a different font */
+  display: inline-block;
+  margin: 0px auto;
+  font-size: 39px;
+  color: #f4e1d2;
+}
 /* Match Request Item Styles */
 .match-request-item {
+  // display: flex;
+  // align-items: center;
+  // background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  // padding: 12px;
+  // border-radius: 10px;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  background-color: #ffb400b8;
   padding: 12px;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid;
+  border-color: #000000;
+  border-style: solid;
+  border-color: #2e2e2e;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 2px 2px 0 0;
 }
 
 /* Avatar Styles */
@@ -57,6 +98,13 @@ body {
   justify-content: center;
   font-size: 18px;
   font-weight: bold;
+  border: 2px solid;
+  border-color: #000000;
+}
+
+.match-username-text {
+  font-size: 25px;
+  font-family: 'Cinzel', serif;
 }
 
 /* Details Styles */
@@ -69,12 +117,12 @@ body {
 
 .match-request-info {
   font-size: 14px;
-  color: #333;
+  color: #000000;
 }
 
 .match-request-info span {
   display: block;
-  color: #777;
+  color: #000000;
   margin-top: 2px;
 }
 

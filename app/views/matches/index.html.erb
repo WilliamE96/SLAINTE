@@ -1,6 +1,6 @@
 <!-- HTML Content -->
 <div class="match-requests-sent-container">
-  <h2 class="text-center m-5">Requests You Sent</h2>
+  <h2 class="title-for-requests">Sent</h2>
   <% @sent_matches.each do |match| %>
     <div class="match-request-item">
       <div class="match-request-avatar">
@@ -10,19 +10,19 @@
       </div>
       <div class="match-request-details">
         <div class="match-request-info">
-          <strong><%= match.matched_user.username %></strong>
+          <strong class="match-username-text"><%= match.matched_user.username %></strong>
           <span>Match request pending...</span>
         </div>
         <div class="match-request-actions">
-          <%= button_to 'Cancel Request', cancel_match_path(match), method: :delete, class: "btn btn-warning" %>
+          <%= button_to 'Cancel Request', cancel_match_path(match), method: :delete, class: "match-request-button" %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
 
-<h2 class="text-center my-4">Match Requests You Received</h2>
 <div class="match-requests-received-container">
+<h2 class="title-for-requests">Received</h2>
   <% @received_matches.each do |match| %>
     <div class="match-request-item">
       <div class="match-request-avatar">
@@ -32,12 +32,12 @@
       </div>
       <div class="match-request-details">
         <div class="match-request-info">
-          <strong><%= match.user.username %></strong>
+          <strong class="match-username-text"><%= match.user.username %></strong>
           <span>Sent you a match request</span>
         </div>
         <div class="match-request-actions">
-          <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "btn btn-success me-2" %>
-          <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "btn btn-danger" %>
+          <%= button_to 'Accept', accept_match_path(match), method: :patch, class: "button-accept" %>
+          <%= button_to 'Reject', reject_match_path(match), method: :patch, class: "button-reject" %>
         </div>
       </div>
     </div>
