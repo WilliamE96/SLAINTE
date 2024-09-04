@@ -68,7 +68,7 @@ div.container.chat {
   background-position: center;
   display: flex;
     h1, .h1 {
-      color: #ffffff;
+      display: none;
     }
 }
 
@@ -80,6 +80,7 @@ div.container.chat {
   flex: 1;
   overflow-y: auto;
   padding: 15px;
+  margin-top: 2rem;
 }
 
 .messages > div {
