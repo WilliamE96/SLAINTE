@@ -120,3 +120,42 @@ input.btn.btn-primary {
   background-color: #005F4E;
   border-color: #edeff1;
 }
+
+
+.match-request-button {
+  border-style: solid;
+  border-color: #2e2e2e;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 2px 2px 0 0;
+  background-color: #f4e1d2;
+}
+
+.button-accept {
+  border-style: solid;
+  border-color: #2e2e2e;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 2px 2px 0 0;
+  background-color: #008080;
+  color: white;
+  padding: 8px;
+  font-size: larger;
+  font-weight: bolder;
+}
+.button-reject {
+  border-style: solid;
+  border-color: #2e2e2e;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 2px 2px 0 0;
+  background-color: #cc5500;
+  color: white;
+  padding: 8px;
+  font-size: larger;
+  font-weight: bolder;
+  // padding: 2px;
+  // padding-left: 2px;
+  // padding-right: 2px;
+  // font-size: 15px;
+}
