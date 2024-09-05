@@ -11,22 +11,28 @@ Comment.destroy_all
 puts "creating 15 users"
 
 users_data = [
-  { email: 'partylover1@example.com', password: 'password', password_confirmation: 'password', username: 'SkyWatcher' },
-  { email: 'drinkbuddy2@example.com', password: 'password', password_confirmation: 'password', username: 'OceanBreeze' },
-  { email: 'socialsipper3@example.com', password: 'password', password_confirmation: 'password', username: 'MountainTrekker' },
-  { email: 'barhopper4@example.com', password: 'password', password_confirmation: 'password', username: 'UrbanExplorer' },
-  { email: 'nightout5@example.com', password: 'password', password_confirmation: 'password', username: 'CoffeeLover' },
-  { email: 'taptime6@example.com', password: 'password', password_confirmation: 'password', username: 'Bookworm88' },
-  { email: 'goodtimes7@example.com', password: 'password', password_confirmation: 'password', username: 'StarGazer' },
-  { email: 'cheers8@example.com', password: 'password', password_confirmation: 'password', username: 'GreenThumb' },
-  { email: 'pubgoer9@example.com', password: 'password', password_confirmation: 'password', username: 'TechGuru' },
-  { email: 'clublife10@example.com', password: 'password', password_confirmation: 'password', username: 'Wanderlust' },
-  { email: 'lastcall11@example.com', password: 'password', password_confirmation: 'password', username: 'CityLights' },
-  { email: 'barfly12@example.com', password: 'password', password_confirmation: 'password', username: 'QuietStorm' },
-  { email: 'socialite13@example.com', password: 'password', password_confirmation: 'password', username: 'SilverLining' },
-  { email: 'chillvibes14@example.com', password: 'password', password_confirmation: 'password', username: 'MellowYellow' },
-  { email: 'drinksession15@example.com', password: 'password', password_confirmation: 'password', username: 'ChasingDreams' }
+  { email: 'sabatino1@example.com', password: 'password', password_confirmation: 'password', username: 'SabatinoC' },
+  { email: 'william2@example.com', password: 'password', password_confirmation: 'password', username: 'WilliamE' },
+  { email: 'socialsipper3@example.com', password: 'password', password_confirmation: 'password', username: 'AlexRider07' },
+  { email: 'barhopper4@example.com', password: 'password', password_confirmation: 'password', username: 'BellaBlue42' },
+  { email: 'nightout5@example.com', password: 'password', password_confirmation: 'password', username: 'SamTheMan18' },
+  { email: 'taptime6@example.com', password: 'password', password_confirmation: 'password', username: 'GraceSwift23' },
+  { email: 'goodtimes7@example.com', password: 'password', password_confirmation: 'password', username: 'NickNinja55' },
+  { email: 'cheers8@example.com', password: 'password', password_confirmation: 'password', username: 'ZoeWildCat66' },
+  { email: 'pubgoer9@example.com', password: 'password', password_confirmation: 'password', username: 'EthanStorm88' },
+  { email: 'clublife10@example.com', password: 'password', password_confirmation: 'password', username: 'MiaSkyline21' },
+  { email: 'lastcall11@example.com', password: 'password', password_confirmation: 'password', username: 'JackHammer33' },
+  { email: 'barfly12@example.com', password: 'password', password_confirmation: 'password', username: 'EllaMoon77' },
+  { email: 'socialite13@example.com', password: 'password', password_confirmation: 'password', username: 'LeoThunder19' },
+  { email: 'chillvibes14@example.com', password: 'password', password_confirmation: 'password', username: 'AvaNova44' },
+  { email: 'drinksession15@example.com', password: 'password', password_confirmation: 'password', username: 'OwenKnight05' }
 ]
+
+# Static photos for SabatinoC and WilliamE
+static_photos = {
+  'SabatinoC' => "https://res.cloudinary.com/dah2rdyj2/image/upload/v1725569917/profile_tdysdf.jpg",
+  'WilliamE' => "https://res.cloudinary.com/dah2rdyj2/image/upload/v1725569961/download11_xnw19e.jpg"
+}
 
 user_photos = [
   "https://res.cloudinary.com/dah2rdyj2/image/upload/v1723560393/austin-distel-qgdJX9mvMJI-unsplash_ycvrrs.jpg",
@@ -49,7 +55,17 @@ user_photos = [
 users = []
 users_data.each_with_index do |user_data, index|
   user = User.create!(user_data)
-  user.photo.attach(io: URI.open(user_photos[index]), filename: File.basename(user_photos[index]), content_type: 'image/jpg')
+
+  # Assign static photos to SabatinoC and WilliamE
+  if static_photos[user.username]
+    photo_url = static_photos[user.username]
+  else
+    # Assign random photos to other users
+    photo_url = user_photos[index]
+  end
+
+  # Attach the correct photo
+  user.photo.attach(io: URI.open(photo_url), filename: File.basename(photo_url), content_type: 'image/jpg')
   puts "Created user: #{user.username}"
   users << user
 end
@@ -74,7 +90,7 @@ post_contents = [
   "Great vibes tonight!",
   "Exploring new spots.",
   "Toasting to good times!",
-  "Whos up for a drink?",
+  "Who's up for a drink?",
   "Late-night adventures.",
   "Cheers to the weekend!",
   "Night out, anyone?",
@@ -129,78 +145,82 @@ post_contents = [
 ]
 
 shuffled_coordinates = [
-  { latitude: 51.5102, longitude: -0.1341 }, # Soho
-  { latitude: 51.5136, longitude: -0.1357 }, # Soho Square
-  { latitude: 51.5145, longitude: -0.1400 }, # Carnaby Street
-  { latitude: 51.5120, longitude: -0.1317 }, # Leicester Square
-  { latitude: 51.5175, longitude: -0.1062 }, # Shoreditch
-  { latitude: 51.5194, longitude: -0.0753 }, # Spitalfields
-  { latitude: 51.5213, longitude: -0.0794 }, # Brick Lane
-  { latitude: 51.5205, longitude: -0.0786 }, # Old Truman Brewery
-  { latitude: 51.5207, longitude: -0.0842 }, # Hoxton
-  { latitude: 51.5215, longitude: -0.0872 }, # Shoreditch High Street
-  { latitude: 51.5138, longitude: -0.0982 }, # The Shard
-  { latitude: 51.5085, longitude: -0.1257 }, # Covent Garden
-  { latitude: 51.5110, longitude: -0.1222 }, # Trafalgar Square
-  { latitude: 51.5095, longitude: -0.1271 }, # Leicester Square
-  { latitude: 51.5152, longitude: -0.1419 }, # Soho House
-  { latitude: 51.5142, longitude: -0.1435 }, # Dean Street
-  { latitude: 51.5159, longitude: -0.1433 }, # Wardour Street
-  { latitude: 51.5169, longitude: -0.1421 }, # Oxford Street
-  { latitude: 51.5132, longitude: -0.1372 }, # Carnaby Street
-  { latitude: 51.5068, longitude: -0.1269 }, # Waterloo Bridge
-  { latitude: 51.5106, longitude: -0.1186 }, # The Strand
-  { latitude: 51.5174, longitude: -0.1020 }, # Liverpool Street
-  { latitude: 51.5185, longitude: -0.0814 }, # Spitalfields Market
-  { latitude: 51.5228, longitude: -0.0815 }, # Columbia Road
-  { latitude: 51.5239, longitude: -0.0781 }, # Redchurch Street
-  { latitude: 51.5299, longitude: -0.1254 }, # Kings Cross
-  { latitude: 51.5343, longitude: -0.1252 }, # Camden Town
-  { latitude: 51.5401, longitude: -0.1447 }, # Camden High Street
-  { latitude: 51.5410, longitude: -0.1469 }, # Chalk Farm Road
-  { latitude: 51.5356, longitude: -0.1421 }, # Kentish Town
-  { latitude: 51.5456, longitude: -0.1411 }, # Hampstead Heath
-  { latitude: 51.5105, longitude: -0.1167 }, # Charing Cross
-  { latitude: 51.5206, longitude: -0.0935 }, # Farringdon
-  { latitude: 51.5219, longitude: -0.0987 }, # Clerkenwell
-  { latitude: 51.5124, longitude: -0.0976 }, # Borough Market
-  { latitude: 51.5118, longitude: -0.0832 }, # Monument
-  { latitude: 51.5141, longitude: -0.0749 }, # Whitechapel
-  { latitude: 51.5144, longitude: -0.0635 }, # Limehouse
-  { latitude: 51.5024, longitude: -0.0865 }, # London Bridge
-  { latitude: 51.5070, longitude: -0.0877 }, # Tower Bridge
-  { latitude: 51.5101, longitude: -0.0749 }, # Tower Hill
-  { latitude: 51.5054, longitude: -0.0753 }, # St. Katharine Docks
-  { latitude: 51.5033, longitude: -0.1008 }, # Tate Modern
-  { latitude: 51.5050, longitude: -0.0943 }, # Blackfriars
-  { latitude: 51.5096, longitude: -0.1340 }, # Mayfair
-  { latitude: 51.5089, longitude: -0.1425 }, # Regent Street
-  { latitude: 51.5112, longitude: -0.1419 }, # Piccadilly Circus
-  { latitude: 51.5154, longitude: -0.1270 }, # Fitzrovia
-  { latitude: 51.5202, longitude: -0.1275 }, # Goodge Street
-  { latitude: 51.5283, longitude: -0.1418 }, # Regent's Park
-  { latitude: 51.5234, longitude: -0.1586 }, # Marylebone
-  { latitude: 51.5255, longitude: -0.1620 }, # Baker Street
-  { latitude: 51.5163, longitude: -0.1291 }, # Bloomsbury
-  { latitude: 51.5206, longitude: -0.1246 }, # Russell Square
-  { latitude: 51.5254, longitude: -0.1094 }, # Angel
-  { latitude: 51.5265, longitude: -0.1106 }, # Upper Street
-  { latitude: 51.5294, longitude: -0.1081 }, # Islington Green
-  { latitude: 51.5283, longitude: -0.1062 }, # Essex Road
-  { latitude: 51.5314, longitude: -0.1025 }, # Highbury
-  { latitude: 51.5324, longitude: -0.1015 }, # Highbury Fields
-  { latitude: 51.5351, longitude: -0.1002 }, # Arsenal
-  { latitude: 51.5311, longitude: -0.0916 }, # Canonbury
-  { latitude: 51.5195, longitude: -0.1460 }, # Marble Arch
-  { latitude: 51.5099, longitude: -0.1486 }, # Hyde Park Corner
-  { latitude: 51.5083, longitude: -0.1431 }, # Green Park
-  { latitude: 51.5078, longitude: -0.1500 }, # Buckingham Palace
-  { latitude: 51.5045, longitude: -0.1617 }, # Victoria
-  { latitude: 51.4934, longitude: -0.1721 }, # Sloane Square
-  { latitude: 51.4940, longitude: -0.1696 }, # Knightsbridge
-  { latitude: 51.4975, longitude: -0.1745 }, # Chelsea
-  { latitude: 51.4998, longitude: -0.1744 }, # South Kensington
-].shuffle
+  { latitude: 51.569916, longitude: -0.137757 },
+  { latitude: 51.574567, longitude: -0.137976 },
+  { latitude: 51.549448, longitude: -0.176133 },
+  { latitude: 51.579485, longitude: -0.180861 },
+  { latitude: 51.589739, longitude: -0.083447 },
+  { latitude: 51.542097, longitude: -0.036831 },
+  { latitude: 51.575551, longitude: 0.02674 },
+  { latitude: 51.596561, longitude: -0.034969 },
+  { latitude: 51.576714, longitude: -0.041553 },
+  { latitude: 51.534082, longitude: 0.050096 },
+  { latitude: 51.588168, longitude: -0.12733 },
+  { latitude: 51.596894, longitude: 0.047962 },
+  { latitude: 51.565028, longitude: -0.197816 },
+  { latitude: 51.535785, longitude: -0.167937 },
+  { latitude: 51.555822, longitude: -0.14171 },
+  { latitude: 51.576827, longitude: -0.184514 },
+  { latitude: 51.591604, longitude: -0.093146 },
+  { latitude: 51.577896, longitude: -0.084297 },
+  { latitude: 51.553967, longitude: -0.085051 },
+  { latitude: 51.563253, longitude: -0.135708 },
+  { latitude: 51.558502, longitude: -0.216924 },
+  { latitude: 51.542121, longitude: -0.222173 },
+  { latitude: 51.583919, longitude: -0.053436 },
+  { latitude: 51.543182, longitude: -0.207133 },
+  { latitude: 51.561153, longitude: 0.050237 },
+  { latitude: 51.546929, longitude: -0.202705 },
+  { latitude: 51.581923, longitude: -0.073802 },
+  { latitude: 51.565533, longitude: -0.120793 },
+  { latitude: 51.568215, longitude: 0.054692 },
+  { latitude: 51.540526, longitude: -0.051066 },
+  { latitude: 51.575871, longitude: -0.14402 },
+  { latitude: 51.570119, longitude: -0.186703 },
+  { latitude: 51.594065, longitude: -0.233524 },
+  { latitude: 51.530864, longitude: -0.143363 },
+  { latitude: 51.594038, longitude: 0.025927 },
+  { latitude: 51.551771, longitude: -0.221577 },
+  { latitude: 51.546448, longitude: -0.146331 },
+  { latitude: 51.56648, longitude: -0.218642 },
+  { latitude: 51.576478, longitude: -0.174917 },
+  { latitude: 51.578645, longitude: 0.007219 },
+  { latitude: 51.540484, longitude: -0.164589 },
+  { latitude: 51.590309, longitude: -0.110645 },
+  { latitude: 51.563116, longitude: -0.010392 },
+  { latitude: 51.561708, longitude: -0.000821 },
+  { latitude: 51.556249, longitude: -0.108199 },
+  { latitude: 51.576738, longitude: -0.060532 },
+  { latitude: 51.588014, longitude: -0.109785 },
+  { latitude: 51.597762, longitude: -0.098329 },
+  { latitude: 51.558667, longitude: -0.070362 },
+  { latitude: 51.539496, longitude: 0.018097 },
+  { latitude: 51.578897, longitude: -0.200799 },
+  { latitude: 51.57965, longitude: -0.170226 },
+  { latitude: 51.591517, longitude: -0.150264 },
+  { latitude: 51.596369, longitude: -0.224648 },
+  { latitude: 51.572953, longitude: -0.099832 },
+  { latitude: 51.555845, longitude: -0.188864 },
+  { latitude: 51.543161, longitude: -0.229859 },
+  { latitude: 51.557414, longitude: -0.214431 },
+  { latitude: 51.568851, longitude: 0.04277 },
+  { latitude: 51.584572, longitude: -0.134242 },
+  { latitude: 51.572883, longitude: -0.094356 },
+  { latitude: 51.538518, longitude: 0.012783 },
+  { latitude: 51.585453, longitude: -0.170945 },
+  { latitude: 51.577745, longitude: -0.197837 },
+  { latitude: 51.529622, longitude: -0.223154 },
+  { latitude: 51.565448, longitude: -0.111611 },
+  { latitude: 51.580606, longitude: -0.139055 },
+  { latitude: 51.562266, longitude: -0.114977 },
+  { latitude: 51.58168, longitude: -0.06972 },
+  { latitude: 51.560082, longitude: -0.097834 },
+  { latitude: 51.566484, longitude: -0.071953 },
+  { latitude: 51.534941, longitude: -0.06257 },
+  { latitude: 51.585204, longitude: -0.067263 },
+  { latitude: 51.537651, longitude: 0.001615 },
+  { latitude: 51.592828, longitude: -0.18711 }
+]
 
 post_images = [
   'https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558925/zac-meadowcroft-U9tPtU0MFHE-unsplash_a0qvxq.jpg',
@@ -276,80 +296,6 @@ post_images = [
   'https://res.cloudinary.com/dah2rdyj2/image/upload/v1723558797/abstral-official-fwAT8_KCVQo-unsplash_ebbjkr.jpg'
 ]
 
-shuffled_coordinates = [
-  { latitude: 51.5102, longitude: -0.1341 }, # Soho
-  { latitude: 51.5136, longitude: -0.1357 }, # Soho Square
-  { latitude: 51.5145, longitude: -0.1400 }, # Carnaby Street
-  { latitude: 51.5120, longitude: -0.1317 }, # Leicester Square
-  { latitude: 51.5175, longitude: -0.1062 }, # Shoreditch
-  { latitude: 51.5194, longitude: -0.0753 }, # Spitalfields
-  { latitude: 51.5213, longitude: -0.0794 }, # Brick Lane
-  { latitude: 51.5205, longitude: -0.0786 }, # Old Truman Brewery
-  { latitude: 51.5207, longitude: -0.0842 }, # Hoxton
-  { latitude: 51.5215, longitude: -0.0872 }, # Shoreditch High Street
-  { latitude: 51.5138, longitude: -0.0982 }, # The Shard
-  { latitude: 51.5085, longitude: -0.1257 }, # Covent Garden
-  { latitude: 51.5110, longitude: -0.1222 }, # Trafalgar Square
-  { latitude: 51.5095, longitude: -0.1271 }, # Leicester Square
-  { latitude: 51.5152, longitude: -0.1419 }, # Soho House
-  { latitude: 51.5142, longitude: -0.1435 }, # Dean Street
-  { latitude: 51.5159, longitude: -0.1433 }, # Wardour Street
-  { latitude: 51.5169, longitude: -0.1421 }, # Oxford Street
-  { latitude: 51.5132, longitude: -0.1372 }, # Carnaby Street
-  { latitude: 51.5068, longitude: -0.1269 }, # Waterloo Bridge
-  { latitude: 51.5106, longitude: -0.1186 }, # The Strand
-  { latitude: 51.5174, longitude: -0.1020 }, # Liverpool Street
-  { latitude: 51.5185, longitude: -0.0814 }, # Spitalfields Market
-  { latitude: 51.5228, longitude: -0.0815 }, # Columbia Road
-  { latitude: 51.5239, longitude: -0.0781 }, # Redchurch Street
-  { latitude: 51.5299, longitude: -0.1254 }, # Kings Cross
-  { latitude: 51.5343, longitude: -0.1252 }, # Camden Town
-  { latitude: 51.5401, longitude: -0.1447 }, # Camden High Street
-  { latitude: 51.5410, longitude: -0.1469 }, # Chalk Farm Road
-  { latitude: 51.5356, longitude: -0.1421 }, # Kentish Town
-  { latitude: 51.5456, longitude: -0.1411 }, # Hampstead Heath
-  { latitude: 51.5105, longitude: -0.1167 }, # Charing Cross
-  { latitude: 51.5206, longitude: -0.0935 }, # Farringdon
-  { latitude: 51.5219, longitude: -0.0987 }, # Clerkenwell
-  { latitude: 51.5124, longitude: -0.0976 }, # Borough Market
-  { latitude: 51.5118, longitude: -0.0832 }, # Monument
-  { latitude: 51.5141, longitude: -0.0749 }, # Whitechapel
-  { latitude: 51.5144, longitude: -0.0635 }, # Limehouse
-  { latitude: 51.5024, longitude: -0.0865 }, # London Bridge
-  { latitude: 51.5070, longitude: -0.0877 }, # Tower Bridge
-  { latitude: 51.5101, longitude: -0.0749 }, # Tower Hill
-  { latitude: 51.5054, longitude: -0.0753 }, # St. Katharine Docks
-  { latitude: 51.5033, longitude: -0.1008 }, # Tate Modern
-  { latitude: 51.5050, longitude: -0.0943 }, # Blackfriars
-  { latitude: 51.5096, longitude: -0.1340 }, # Mayfair
-  { latitude: 51.5089, longitude: -0.1425 }, # Regent Street
-  { latitude: 51.5112, longitude: -0.1419 }, # Piccadilly Circus
-  { latitude: 51.5154, longitude: -0.1270 }, # Fitzrovia
-  { latitude: 51.5202, longitude: -0.1275 }, # Goodge Street
-  { latitude: 51.5283, longitude: -0.1418 }, # Regent's Park
-  { latitude: 51.5234, longitude: -0.1586 }, # Marylebone
-  { latitude: 51.5255, longitude: -0.1620 }, # Baker Street
-  { latitude: 51.5163, longitude: -0.1291 }, # Bloomsbury
-  { latitude: 51.5206, longitude: -0.1246 }, # Russell Square
-  { latitude: 51.5254, longitude: -0.1094 }, # Angel
-  { latitude: 51.5265, longitude: -0.1106 }, # Upper Street
-  { latitude: 51.5294, longitude: -0.1081 }, # Islington Green
-  { latitude: 51.5283, longitude: -0.1062 }, # Essex Road
-  { latitude: 51.5314, longitude: -0.1025 }, # Highbury
-  { latitude: 51.5324, longitude: -0.1015 }, # Highbury Fields
-  { latitude: 51.5351, longitude: -0.1002 }, # Arsenal
-  { latitude: 51.5311, longitude: -0.0916 }, # Canonbury
-  { latitude: 51.5195, longitude: -0.1460 }, # Marble Arch
-  { latitude: 51.5099, longitude: -0.1486 }, # Hyde Park Corner
-  { latitude: 51.5083, longitude: -0.1431 }, # Green Park
-  { latitude: 51.5078, longitude: -0.1500 }, # Buckingham Palace
-  { latitude: 51.5045, longitude: -0.1617 }, # Victoria
-  { latitude: 51.4934, longitude: -0.1721 }, # Sloane Square
-  { latitude: 51.4940, longitude: -0.1696 }, # Knightsbridge
-  { latitude: 51.4975, longitude: -0.1745 }, # Chelsea
-  { latitude: 51.4998, longitude: -0.1744 }, # South Kensington
-].shuffle
-
 comments = [
   "Looks like a fun night!",
   "Great vibes!",
@@ -384,27 +330,7 @@ comments = [
   "Wish I could be there!",
   "Living your best life!",
   "Night out well spent!",
-  "That's what weekends are for!",
-  "Looks like a great atmosphere!",
-  "Hope you're enjoying!",
-  "Looks like a chill spot!",
-  "Perfect way to unwind!",
-  "Night to remember!",
-  "Looks like a lot of fun!",
-  "Out and about!",
-  "Great location!",
-  "Where is that?",
-  "Perfect night out!",
-  "Hope you're having a blast!",
-  "Good choice of venue!",
-  "Enjoy the night!",
-  "Cheers to the weekend!",
-  "Nice spot!",
-  "Out and about!",
-  "Looks like a great night!",
-  "Awesome night out!",
-  "Making the most of it!",
-  "That place looks fun!",
+  "That's what weekends",
   "Good times ahead!",
   "Hope you're enjoying!",
   "Looks like a lively spot!",
@@ -498,7 +424,6 @@ comments = [
   "Where is that place?"
 ]
 
-
 # Shuffle the post_images array to ensure randomness
 shuffled_images = post_images.shuffle
 
@@ -513,12 +438,7 @@ shuffled_images.each_with_index do |image, index|
   post_content = post_contents.sample
   coordinates = shuffled_coordinates[index]
 
-
-  # Select a unique set of coordinates for the post
-  coordinates = shuffled_coordinates[index]
-
   # Create the post with the coordinates and attach the image
-
   post = user.posts.create!(content: post_content, latitude: coordinates[:latitude], longitude: coordinates[:longitude])
   post.photo.attach(io: URI.open(image), filename: File.basename(image), content_type: 'image/jpg')
 
@@ -533,12 +453,9 @@ shuffled_images.each_with_index do |image, index|
 
   puts "Added likes to post #{post.id}: #{post.likes.count} likes"
 
-
   comments_for_post = comments.sample(rand(0..5))
 
   # Add random comments to the post
-  comments_for_post = comments.sample(rand(0..5)) # Randomly select 0 to 5 comments
-
   comments_for_post.each do |comment_content|
     commenter = User.all.sample
     post.comments.create!(user: commenter, content: comment_content)
