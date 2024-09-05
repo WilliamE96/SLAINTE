@@ -1,32 +1,27 @@
-<head>
-  <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css' %>
-</head>
-
 <div class="container">
   <div id="background-image">
     <h1 class="username"><%= @user.username %></h1>
-<div class="profile-picture text-center profile-picture-spacing">
-  <% if @user.photo.attached? %>
-    <%= image_tag @user.photo, alt: @user.username, class: 'profile-img' %>
-  <% else %>
-    <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar" %>
-  <% end %>
-</div>
+    <div class="profile-picture text-center profile-picture-spacing">
+      <% if @user.photo.attached? %>
+        <%= image_tag @user.photo, alt: @user.username, class: 'profile-img' %>
+      <% else %>
+        <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar" %>
+      <% end %>
+    </div>
 
-  <div class="text-center">
-    <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-custom-yellow mb-3" %>
+    <!-- Conditionally display the log out button only if the user is viewing their own profile -->
+    <% if @user == current_user %>
+      <div class="text-center">
+        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-custom-yellow mb-3" %>
+      </div>
+    <% end %>
+
   </div>
-  </div>
-  <h2 class="username">My Posts</h2>
+
+  <h2 id="my-posts">My Posts</h2>
   <div class="posts">
     <% @user.posts.order(created_at: :desc).each do |post| %>
-      <div class="post">
-        <p><%= post.content %></p>
-        <% if post.photo.attached? %>
-          <%= image_tag post.photo, class: 'post-img' %>
-        <% end %>
-        <p><small><%= time_ago_in_words(post.created_at) %> ago</small></p>
-      </div>
+      <%= render partial: 'posts/post', locals: { post: post } %>
     <% end %>
   </div>
 </div>
