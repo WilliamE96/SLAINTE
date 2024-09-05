@@ -27,7 +27,7 @@
   color: #41403e;
   display: inline-block;
   font-family: 'Architects Daughter', cursive;
-  font-size: 1rem;
+  font-size: 20px;
   line-height: 23px;
   outline: none;
   padding: .75rem;
@@ -36,4 +36,98 @@
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   padding: 5px;
+}
+
+.post-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #d4edda;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    box-shadow: #000000 2px 2px 0 0;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+// .like-section {
+//   margin-top: 20px;
+// }
+
+.comment-form {
+  margin-top: 1px;
+}
+
+.comment-input-group {
+  display: flex;
+}
+
+.comments-container {
+  margin-top: 20px;
+}
+
+
+
+.form-control {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 225px;
+  border: none;
+  padding: 10px;
+  margin-bottom: 0;
+  background-color: #f1f0f0;
+  box-sizing: border-box;
+  border-radius: 10px 0px 0px 10px;
+  border-top: 2px solid #000;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.comments-section-container {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #2e2e2e68;
+  width: 107%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0px;
+  border: 2px solid;
 }

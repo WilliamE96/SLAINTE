@@ -51,7 +51,7 @@
 .comment-input-group {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  height: 60px;
 }
 
 // Styles for the unordered list with class 'list-unstyled'
@@ -67,6 +67,8 @@ ul.list-unstyled .comment {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  width: 283px;
+  border: 1.5px solid;
 }
 
 // Styles for paragraphs within individual comments

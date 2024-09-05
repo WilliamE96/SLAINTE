@@ -1,4 +1,4 @@
-<div class="container">
+<div class="post-container">
   <%# Post Title %>
   <p id="post-title"><%= @post.content %></p>
 
@@ -7,19 +7,23 @@
     <%= cl_image_tag @post.photo.key, alt: "Post Image", class: "post-image" %>
   <% end %>
 
-  <%# Post Actions %>
-  <div class="post-actions">
-    <%# Action Buttons %>
-    <div class="action-buttons">
-      <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom-yellow" %>
-      <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-custom-teal" %>
-      <%= link_to 'Back', posts_path, class: "btn btn-custom-teal" %>
+  <%# Post Actions - Only show delete/edit options if the current user owns the post %>
+  <% if @post.user == current_user %>
+    <div class="post-actions">
+      <%# Action Buttons %>
+      <div class="action-buttons">
+        <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom-yellow" %>
+        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-custom-teal" %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
-  <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
+  <%# Back Button %>
+  <%#= link_to 'Back', posts_path, class: 'btn btn-custom-teal' %>
+
   <%# Likes Section %>
   <div class="like-section" style="text-align: center;">
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id } %>
     <% if pre_like %>
       <%= button_to post_like_path(@post, pre_like), method: :delete, class: "like-button liked",
         style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
@@ -38,27 +42,30 @@
     </div>
   </div>
 
-  <%# Comment Form %>
-  <div class="comment-form">
-    <%= simple_form_for [@post, @comment] do |f| %>
-      <div class="comment-input-group">
-        <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment' } %>
-        <%= f.submit 'Post', class: 'btn btn-custom-teal comment-submit' %>
-      </div>
-    <% end %>
-  </div>
-
-  <%# Display Comments %>
-  <ul class="list-unstyled">
-    <% if @post.comments.any? %>
-      <% @post.comments.each do |comment| %>
-        <li class="comment">
-          <p><%= comment.content %></p>
-          <p><%= comment.user.username %></p>
-        </li>
+  <%# Comment Section and Form Container %>
+  <div class="comments-section-container">
+    <%# Comment Form %>
+    <div class="comment-form">
+      <%= simple_form_for [@post, @comment] do |f| %>
+        <div class="comment-input-group">
+          <%= f.input :content, label: false, input_html: { class: 'form-control comment-input', placeholder: 'Write your comment' } %>
+          <%= f.submit 'Post', class: 'btn btn-custom-teal comment-submit' %>
+        </div>
       <% end %>
-    <% else %>
-      <p>No Comments Yet😔</p>
-    <% end %>
-  </ul>
+    </div>
+
+    <%# Display Comments %>
+    <ul class="list-unstyled">
+      <% if @post.comments.any? %>
+        <% @post.comments.each do |comment| %>
+          <li class="comment">
+            <p><%= comment.content %></p>
+            <p><%= comment.user.username %></p>
+          </li>
+        <% end %>
+      <% else %>
+        <p>No Comments Yet😔</p>
+      <% end %>
+    </ul>
+  </div>
 </div>
