@@ -1,51 +1,64 @@
 // Chat Index Page
 .chat-container {
-  background: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723286711/pexels-cottonbro-9419382_rfowhj.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
 
+
+  #chat-header {
+    font-family: 'Architects Daughter', cursive;
+  }
+
   h1 {
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 20px;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    border-bottom: 3px solid;
   }
 
   ul {
     width: 100%;
-    background-color: #2E2E2E;
+    background-color: #d4edda;
     border-radius: 12px;
-    padding: 20px;
+    padding: 0px;
+    border-style: solid;
+    border-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    box-shadow: #000000 2px 2px 0 0;
   }
 
   li {
     padding: 15px 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   a {
     color: #005F4E;
     font-size: 1.2rem;
     font-weight: bold;
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-decoration: solid;
+    // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     margin-bottom: 5px;
     text-transform: uppercase;
+    font-family: 'Georgia', serif;
+    display: inline-block;
+    margin: 0px auto;
+    font-size: 26px;
+    color: #000000;
   }
 
   p {
-    background-color: #2E2E2E;
+    background-color: #005f4e;
     color: #FFB400;
     padding: 10px;
     border-radius: 8px;
@@ -54,6 +67,12 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     margin: 0;
     text-align: center;
+    border-style: solid;
+    border-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    box-shadow: #000000 2px 1px 0 0;
+    padding: 12px;
   }
 }
 

@@ -1,12 +1,12 @@
 <div class="chat-container">
-  <h1>My Chat</h1>
+  <h1 id="chat-header">Your chats!</h1>
 
   <% if @friends.size > 0 %>
     <ul>
       <% @friends.each do |match| %>
         <% if match.messages.size > 0 %>
           <li>
-            <%= link_to "Friend: #{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
+            <%= link_to "#{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
             <% if match.messages.last.user == current_user %>
               <p>You: <%= match.messages.last.content %></p>
             <% else %>
@@ -15,8 +15,8 @@
           </li>
         <% else %>
           <li>
-            <%= link_to "Friend: #{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
-            <p>No messages yet.</p>
+            <%= link_to "#{match.user == current_user ? match.matched_user.username : match.user.username}", match_path(match) %>
+            <p>No messages yet</p>
           </li>
         <% end %>
       <% end %>
@@ -25,4 +25,3 @@
     <p>Currently you don't have any chats</p>
   <% end %>
 </div>
-
