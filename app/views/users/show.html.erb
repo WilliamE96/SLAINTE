@@ -10,11 +10,6 @@
     </div>
 
     <!-- Conditionally display the log out button only if the user is viewing their own profile -->
-    <% if @user == current_user %>
-      <div class="text-center">
-        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-custom-yellow mb-3" %>
-      </div>
-    <% end %>
 
   </div>
 
@@ -25,3 +20,10 @@
     <% end %>
   </div>
 </div>
+
+
+    <% if @user == current_user %>
+      <div class="text-center">
+        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-custom-yellow mb-3" %>
+      </div>
+    <% end %>
