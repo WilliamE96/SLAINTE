@@ -63,10 +63,12 @@ div.container.chat {
   bottom: 60px;
   width: 100%;
   height: calc(100vh - 60px);
-  background-image: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723748251/development/job2o1u4nzenso5nnc1mceuwavr8.jpg');
+  // background-image: url('https://res.cloudinary.com/dah2rdyj2/image/upload/v1723748251/development/job2o1u4nzenso5nnc1mceuwavr8.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
+  padding-bottom: 0px;
+  padding-top: 25px;
     h1, .h1 {
       display: none;
     }
@@ -93,4 +95,153 @@ div.container.chat {
 
 form {
   margin-top: auto;
+}
+
+/* Basic Chat Container */
+.container.chat {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  background: transparent; /* No background to see the image behind */
+  color: #fff;
+}
+
+/* Chat Bubbles */
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Received Messages (Friend) */
+.message.received {
+  align-self: flex-start;
+  background-color: #f1f0f0;
+  border-radius: 15px 15px 15px 0;
+  padding: 10px;
+  max-width: 70%;
+  color: #000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 360px;
+}
+
+.message.received small {
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Sent Messages (User's own) */
+.message.sent {
+  align-self: flex-end;
+  background-color: #005f4e;
+  border-radius: 15px 15px 0 15px;
+  padding: 10px;
+  max-width: 70%;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 360px;
+}
+
+.message.sent small {
+  color: #fff;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Chat Input Area */
+.chat-input {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  flex-grow: 0;
+  height: 54px;
+}
+
+.chat-textbox {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  background-color: #f1f0f0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  flex-grow: 0; /* Prevent it from growing */
+}
+
+
+/* Input Field */
+.chat-textbox-input {
+  width: 283px;
+  border: none;
+  padding: 10px;
+  margin-bottom: 0;
+  background-color: #f1f0f0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border-radius: 10px 0px 0px 10px;
+  border-top: 2px solid #000;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+/* Send Button */
+.send-btn {
+  background-color: #005f4e;
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  width: 43%;
+  box-sizing: border-box;
+  margin-top: 0;
+  height: 47.8px;
+  border-top: 2px solid #000;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  border-radius: 0px 10px 10px 0px;
+}
+
+/* Additional Cleanup for Form */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+.d-flex {
+  display: block; /* No flex behavior here */
+  margin: 0;
+  padding: 0;
+  height: auto; /* Ensure it's not forcing any height */
+}
+
+/* Input-wrapper and Button-wrapper to remove space between them */
+.chat-input .input-wrapper,
+.chat-input .button-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.chat-input .input-wrapper {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.chat-input .button-wrapper {
+  width: 100%;
+}
+
+#simple-form {
+  background-color: #ffc65a;
+  padding: 17px;
+  border-radius: 20px 20px 0px 0px;
+  border-top: 2px solid #000;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
