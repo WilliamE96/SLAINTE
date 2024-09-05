@@ -47,26 +47,24 @@
     border-radius: 50%; /* Makes it a perfect circle */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.192); /* Soft shadow for depth */
     margin-top: -14px;
-    border: 1.5px solid #000000;
+    border: 2px solid #000000;
     background-color: #ffe5a5;
   }
 
   #background-image .profile-picture img {
     border-radius: 50%; /* Circular profile image */
-    border: 2px solid #ffc65a; /* Add a green border around profile pic */
+    border: 1px solid #000000; /* Add a green border around profile pic */
     width: 120px;
     height: 120px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.529);
   }
 
   .username {
-    font-size: 2em; /* Make the username stand out */
-    font-weight: bold;
+    font-size: 30px; /* Make the username stand out */
     color: #000000;
     margin: 10px 0;
     margin-top: 37px;
-    -webkit-text-stroke-width: 0.7px;
-    -webkit-text-stroke-color: #ffc65a;
+  
   }
 
   .btn-custom-yellow {
