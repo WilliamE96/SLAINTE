@@ -8,6 +8,78 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+#my-posts {
+  text-align: center;
+  background-color: #fbeee0;
+  background-position: 0 90%;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
+  color: #000000;
+  display: inline-block;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 2rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  padding: 5px;
+  margin-top: 20px;
+}
+
   .profile-picture-spacing {
     margin-bottom: 20px;
+  }
+
+
+  #background-image {
+    // background-color: #d4edda; /* Your preferred background color */
+    // background: linear-gradient(135deg, #ffb400, #ffe5a5);
+    width: 300px; /* Increase the width for a bigger circle */
+    height: 300px; /* Same value as the width for a perfect circle */
+    padding: 20px;
+    text-align: center;
+    border-radius: 50%; /* Makes it a perfect circle */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.192); /* Soft shadow for depth */
+    margin-top: -14px;
+    border: 1.5px solid #000000;
+    background-color: #ffe5a5;
+  }
+
+  #background-image .profile-picture img {
+    border-radius: 50%; /* Circular profile image */
+    border: 2px solid #ffc65a; /* Add a green border around profile pic */
+    width: 120px;
+    height: 120px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.529);
+  }
+
+  .username {
+    font-size: 2em; /* Make the username stand out */
+    font-weight: bold;
+    color: #000000;
+    margin: 10px 0;
+    margin-top: 37px;
+    -webkit-text-stroke-width: 0.7px;
+    -webkit-text-stroke-color: #ffc65a;
+  }
+
+  .btn-custom-yellow {
+    background-color: #ffb400;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px; /* Rounded button for a modern look */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid black;
+  }
+
+  .btn-custom-yellow:hover {
+    background-color: #ff9500; /* Slight hover effect */
   }

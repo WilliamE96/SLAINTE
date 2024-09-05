@@ -1,0 +1,62 @@
+<div class="post">
+
+  <div class="post-header">
+    <% if user_signed_in? %>
+      <%= link_to user_path(post.user) do %>
+        <% if post.user.photo.attached? %>
+          <%= cl_image_tag post.user.photo.key, class: "avatar ms-2", alt: "User's avatar" %>
+        <% else %>
+          <%= image_tag "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg", class: "avatar ms-2", alt: "Default avatar" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <p id="post-title"><%= post.content %></p>
+  </div>
+
+  <% if post.photo.attached? %>
+    <%= link_to post, class: "w-100" do %>
+      <%= cl_image_tag post.photo.key, alt: "Post image", class: "post-image" %>
+    <% end %>
+  <% end %>
+
+  <% pre_like = post.likes.find { |like| like.user_id == current_user.id } %>
+  <div class="post-interactions" style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+      <div class="like-section" style="text-align: center;">
+        <% if pre_like %>
+          <%= button_to post_like_path(post, pre_like), method: :delete, remote: true, class: "like-button liked",
+            style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+            <i class="fa-solid fa-heart" style="color: #ffb400; font-size: 24px;" id="heart-icon"></i>
+          <% end %>
+        <% else %>
+          <%= button_to post_likes_path(post), method: :post, class: "like-button not-liked",
+          style: "border: none; background: none; cursor: pointer; display: inline-flex; align-items: center; font-size: 24px;" do %>
+            <i class="fa-regular fa-heart" style="color: grey; font-size: 24px;"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <p style="margin: 5px 0 0; font-size: 12px; color: #333;">
+        <%= post.likes.count %>
+      </p>
+    </div>
+
+    <% if post.user == current_user %>
+      <p class="button-74 mb-0">Your post</p>
+    <% else %>
+      <% if current_user.sent_matches.where(matched_user: post.user, status: :pending).exists? %>
+        <img src="https://res.cloudinary.com/dah2rdyj2/image/upload/fl_preserve_transparency/v1722970847/wait_fxf1fz.jpg?_s=public-apps" alt="Flaticon" class="icon-class" id="icon-hourglass">
+      <% elsif current_user.sent_matches.where(matched_user: post.user, status: :accepted).exists? %>
+        <img src="https://res.cloudinary.com/dah2rdyj2/image/upload/fl_preserve_transparency/v1722970833/beer_awm9mk.jpg" alt="Flaticon" class="icon-class">
+      <% else %>
+        <%= button_to 'Join', matches_path(matched_user_id: post.user.id), method: :post, class: "button-74" %>
+      <% end %>
+    <% end %>
+
+    <%= link_to post, class: "comment-button",
+    style: "font-size: 24px; padding: 5px 0; display: inline-flex; align-items: center;" do %>
+      <i class="fa-solid fa-comment-dots" style="font-size: 28px"></i>
+    <% end %>
+
+  </div>
+</div>
