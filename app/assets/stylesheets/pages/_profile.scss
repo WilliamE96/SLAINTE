@@ -1,7 +1,7 @@
 .username {
   color: #005f4e;
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
+  font-family:  'Architects Daughter', cursive;
+  font-size: 38px;
   letter-spacing: 2px;
   text-align: center;
   display: block;
@@ -40,30 +40,36 @@
   #background-image {
     // background-color: #d4edda; /* Your preferred background color */
     // background: linear-gradient(135deg, #ffb400, #ffe5a5);
-    width: 300px; /* Increase the width for a bigger circle */
-    height: 300px; /* Same value as the width for a perfect circle */
+    width: 336px; /* Increase the width for a bigger circle */
+    height: 273px; /* Same value as the width for a perfect circle */
     padding: 20px;
     text-align: center;
-    border-radius: 50%; /* Makes it a perfect circle */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.192); /* Soft shadow for depth */
+    border-radius: 20%; /* Makes it a perfect circle */
+    // box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.192); /* Soft shadow for depth */
     margin-top: -14px;
-    border: 2px solid #000000;
+    border: 3.5px solid #000000;
     background-color: #ffe5a5;
+    border-style: solid;
+    border-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    box-shadow: #000000 2px 2px 0 0;
   }
 
   #background-image .profile-picture img {
     border-radius: 50%; /* Circular profile image */
-    border: 2px solid #000000; /* Add a green border around profile pic */
-    width: 120px;
-    height: 120px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.529);
+    border: 3.5px solid #000000; /* Add a green border around profile pic */
+    width: 160px;
+    height: 160px;
+    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.529);
+
   }
 
   .username {
-    font-size: 30px; /* Make the username stand out */
+    font-size: 39px; /* Make the username stand out */
     color: #000000;
     margin: 10px 0;
-    margin-top: 37px;
+    margin-top: 7px;
 
   }
 
